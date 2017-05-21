@@ -1,7 +1,9 @@
-package com.example.administrator.paintingfriends20;
+package com.example.administrator.paintingfriends20.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.administrator.paintingfriends20.R;
 
 public class MainActivity extends AppCompatActivity {
 
