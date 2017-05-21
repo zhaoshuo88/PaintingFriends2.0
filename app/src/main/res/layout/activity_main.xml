@@ -4,10 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.administrator.paintingfriends20.activity.MainActivity">
+    android:id="@+id/LlayMainTotal"
+    tools:context="com.example.administrator.paintingfriends20.MainActivity">
 
     <FrameLayout
-        android:id="@+id/contaner"
+        android:id="@+id/FlayMainContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="200">
@@ -19,11 +20,12 @@
         android:layout_weight="1"
         android:gravity="bottom">
 
-
         <!--主页-->
         <LinearLayout
+            android:id="@+id/LlayMainHome"
             android:layout_weight="1"
             android:orientation="vertical"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
@@ -31,9 +33,10 @@
                 android:layout_gravity="center"
                 android:background="#00000000"
                 android:scaleType="fitXY"
+                android:clickable="false"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/btn_home"
+                android:id="@+id/IbMainHome"
                 android:src="@drawable/home"/>
             <TextView
                 android:textAlignment="center"
@@ -46,7 +49,9 @@
 
         <!--画作浏览页-->
         <LinearLayout
+            android:id="@+id/LlayMainPicture"
             android:layout_weight="1"
+            android:clickable="true"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -55,22 +60,25 @@
                 android:layout_gravity="center"
                 android:background="#00000000"
                 android:scaleType="fitXY"
+                android:clickable="false"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/btn_camera"
+                android:id="@+id/IbMainPicture"
                 android:src="@drawable/picture"/>
             <TextView
                 android:textAlignment="center"
                 android:textSize="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="摄影"/>
+                android:text="作品"/>
 
         </LinearLayout>
 
         <!--需求浏览页-->
         <LinearLayout
+            android:id="@+id/LlayMainRequest"
             android:layout_weight="1"
+            android:clickable="true"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -79,9 +87,10 @@
                 android:layout_gravity="center"
                 android:background="#00000000"
                 android:scaleType="fitXY"
+                android:clickable="false"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/btn_request"
+                android:id="@+id/IbMainRequest"
                 android:src="@drawable/request"/>
             <TextView
                 android:textAlignment="center"
@@ -93,7 +102,9 @@
         </LinearLayout>
         <!-- 个人信息 -->
         <LinearLayout
+            android:id="@+id/LlayMainMine"
             android:layout_weight="1"
+            android:clickable="true"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -102,9 +113,10 @@
                 android:layout_gravity="center"
                 android:background="#00000000"
                 android:scaleType="fitXY"
+                android:clickable="false"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/btn_mine"
+                android:id="@+id/IbMainMine"
                 android:src="@drawable/mine"/>
             <TextView
                 android:textAlignment="center"
