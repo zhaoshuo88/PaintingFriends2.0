@@ -7,17 +7,17 @@ import android.graphics.Bitmap;
  */
 
 public class Pricture {
-    private Long id;
+    private int id;
     private int headPortrait;   //头像
     private String name;    //昵称
-    private Bitmap image;  //作品图片
+    private int image;  //作品图片
 
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -37,17 +37,17 @@ public class Pricture {
         this.name = name;
     }
 
-    public Bitmap getImage() {
+    public int getImage() {
         return image;
     }
 
-    public void setImage(Bitmap image) {
+    public void setImage(int image) {
         this.image = image;
     }
 
 
 
-    public Pricture(Long id, int headPortrait, String name, Bitmap image) {
+    public Pricture(int id, int headPortrait, String name, int image) {
         this.id = id;
         this.headPortrait = headPortrait;
         this.name = name;
