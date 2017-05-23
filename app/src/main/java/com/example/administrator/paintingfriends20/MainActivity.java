@@ -203,8 +203,6 @@ public class MainActivity extends Activity {
                     transaction.replace(R.id.FlayMainContent, mRequest);
                     break;
                 case R.id.LlayMainMine:
-//                    Intent i=new Intent(MainActivity.this,PersonnalMessage.class);
-//                    startActivity(i);
                     if (mMine == null) {
                         mMine = new MineFragment();
                     }

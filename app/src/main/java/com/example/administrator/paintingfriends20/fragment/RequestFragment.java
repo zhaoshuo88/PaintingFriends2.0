@@ -39,7 +39,7 @@ public class RequestFragment extends Fragment {
         getData();
 
         requestAdapter = new RequestAdapter(getActivity(),lRequest);
-
+        mRequestList.setAdapter(requestAdapter);
         return view;
     }
     private void findView() {
@@ -58,7 +58,7 @@ public class RequestFragment extends Fragment {
             String name = "画友第"+ (i+1) +"号用户";
             lRequest.add(new Request((long)rid,R.drawable.touxiang3,name,redetail,rdate));
             System.out.println(rid + rdate + redetail + ruid);
-            mRequestList.setAdapter(requestAdapter);
+
         }
     }
 }
