@@ -1,4 +1,4 @@
-package com.example.administrator.paintingfriends20.fragment;
+package com.example.administrator.paintingfriends20.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 
 import com.example.administrator.paintingfriends20.R;
+import com.example.administrator.paintingfriends20.domain.Request;
 
 import java.util.ArrayList;
 import java.util.List;

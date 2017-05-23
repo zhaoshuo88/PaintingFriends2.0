@@ -1,17 +1,16 @@
 package com.example.administrator.paintingfriends20.domain;
 
 /**
- * Created by 15530 on 2016/11/30.
+ * Created by Loktar on 2017/5/23.
  */
-
-public class Requset {
+public class Request {
     private Long id;
     private int headPhoto;  //头像
     private String name;    //昵称
     private String request; //具体需求
     private String time;    //发布时间
 
-    public Requset(Long id, int headPhoto, String name, String request, String time) {
+    public Request(Long id, int headPhoto, String name, String request, String time) {
         this.id = id;
         this.headPhoto = headPhoto;
         this.name = name;

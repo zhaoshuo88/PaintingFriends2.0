@@ -47,9 +47,9 @@
 
         </LinearLayout>
 
-        <!--画作浏览页-->
+        <!-- 发现页面 -->
         <LinearLayout
-            android:id="@+id/LlayMainPicture"
+            android:id="@+id/LlayMainFind"
             android:layout_weight="1"
             android:clickable="true"
             android:orientation="vertical"
@@ -63,14 +63,14 @@
                 android:clickable="false"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:id="@+id/IbMainPicture"
-                android:src="@drawable/picture"/>
+                android:id="@+id/IbMainFind"
+                android:src="@drawable/find"/>
             <TextView
                 android:textAlignment="center"
                 android:textSize="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="作品"/>
+                android:text="发现"/>
 
         </LinearLayout>
 
