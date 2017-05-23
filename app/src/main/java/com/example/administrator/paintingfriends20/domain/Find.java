@@ -1,12 +1,10 @@
 package com.example.administrator.paintingfriends20.domain;
 
-import android.graphics.Bitmap;
-
 /**
  * Created by 15530 on 2017/5/21.
  */
 
-public class Pricture {
+public class Find {
     private int id;
     private int headPortrait;   //头像
     private String name;    //昵称
@@ -47,7 +45,7 @@ public class Pricture {
 
 
 
-    public Pricture(int id, int headPortrait, String name, int image) {
+    public Find(int id, int headPortrait, String name, int image) {
         this.id = id;
         this.headPortrait = headPortrait;
         this.name = name;

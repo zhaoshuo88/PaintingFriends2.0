@@ -11,6 +11,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.administrator.paintingfriends20.R;
+import com.example.administrator.paintingfriends20.adapter.RequestAdapter;
+import com.example.administrator.paintingfriends20.domain.Request;
 
 import java.util.ArrayList;
 import java.util.List;

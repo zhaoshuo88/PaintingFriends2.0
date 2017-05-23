@@ -8,10 +8,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
-import com.example.administrator.paintingfriends20.R;
+import com.example.administrator.paintingfriends20.fragment.FindFragment;
 import com.example.administrator.paintingfriends20.fragment.HomeFragment;
 import com.example.administrator.paintingfriends20.fragment.MineFragment;
-import com.example.administrator.paintingfriends20.fragment.PictureFragment;
 import com.example.administrator.paintingfriends20.fragment.RequestFragment;
 import com.example.administrator.paintingfriends20.utils.Utils;
 
@@ -19,28 +18,28 @@ public class MainActivity extends Activity {
 
     private int[] image0 = new int[]{
             R.drawable.home,
-            R.drawable.picture,
+            R.drawable.find,
             R.drawable.request,
             R.drawable.mine
     };
     private int[] image1 = new int[]{
             R.drawable.home1,
-            R.drawable.picture1,
+            R.drawable.find1,
             R.drawable.request1,
             R.drawable.mine1
     };
     private LinearLayout mLlayMainTotal;
     private ImageButton mIbMainHome;
-    private ImageButton mIbMainPicture;
+    private ImageButton mIbMainFind;
     private ImageButton mIbMainRequest;
     private ImageButton mIbMainMine;
     private LinearLayout mLlayMainHome;
-    private LinearLayout mLlayMainPicture;
+    private LinearLayout mLlayMainFind;
     private LinearLayout mLlayMainRequest;
     private LinearLayout mLlayMainMine;
     //声明Fragment属性
     private HomeFragment mHome;
-    private PictureFragment mPicture;
+    private FindFragment mFind;
     private RequestFragment mRequest;
     private MineFragment mMine;
 
@@ -60,7 +59,7 @@ public class MainActivity extends Activity {
                 setHomePage();
                 break;
             case 2:
-                setPicturePage();
+                setFindPage();
                 break;
             case 3:
                 setRequestPage();
@@ -103,16 +102,16 @@ public class MainActivity extends Activity {
 
     }
 
-    private void setPicturePage() {
+    private void setFindPage() {
         //1.获取一个FragmentManager对象
         FragmentManager fm = getFragmentManager();
         //2.获取FragmentTransaction对象
         FragmentTransaction transaction = fm.beginTransaction();
-        if (mPicture == null) {
-            mPicture = new PictureFragment();
+        if (mFind == null) {
+            mFind = new FindFragment();
         }
         //3.设置页面
-        transaction.replace(R.id.FlayMainContent,mPicture);
+        transaction.replace(R.id.FlayMainContent,mFind);
         //4.执行更改
         transaction.commit();
         mLlayMainTotal.invalidate();
@@ -139,7 +138,7 @@ public class MainActivity extends Activity {
     private void setListener() {
         MyListener listener = new MyListener();
         mLlayMainHome.setOnClickListener(listener);
-        mLlayMainPicture.setOnClickListener(listener);
+        mLlayMainFind.setOnClickListener(listener);
         mLlayMainRequest.setOnClickListener(listener);
         mLlayMainMine.setOnClickListener(listener);
     }
@@ -147,12 +146,12 @@ public class MainActivity extends Activity {
     private void getViews() {
         mLlayMainTotal = (LinearLayout) findViewById(R.id.LlayMainTotal);
         mLlayMainHome = (LinearLayout) findViewById(R.id.LlayMainHome);
-        mLlayMainPicture = (LinearLayout) findViewById(R.id.LlayMainPicture);
+        mLlayMainFind = (LinearLayout) findViewById(R.id.LlayMainFind);
         mLlayMainRequest = (LinearLayout) findViewById(R.id.LlayMainRequest);
         mLlayMainMine = (LinearLayout) findViewById(R.id.LlayMainMine);
 
         mIbMainHome = (ImageButton) findViewById(R.id.IbMainHome);
-        mIbMainPicture = (ImageButton) findViewById(R.id.IbMainPicture);
+        mIbMainFind = (ImageButton) findViewById(R.id.IbMainFind);
         mIbMainRequest = (ImageButton) findViewById(R.id.IbMainRequest);
         mIbMainMine = (ImageButton) findViewById(R.id.IbMainMine);
     }
@@ -172,22 +171,22 @@ public class MainActivity extends Activity {
                     }
                     //3. 设置页面
                     mIbMainHome.setImageResource(image1[0]);
-                    mIbMainPicture.setImageResource(image0[1]);
+                    mIbMainFind.setImageResource(image0[1]);
                     mIbMainRequest.setImageResource(image0[2]);
                     mIbMainMine.setImageResource(image0[3]);
                     transaction.replace(R.id.FlayMainContent, mHome);
                     break;
-                case R.id.LlayMainPicture:  //点击作品页面
-                    if (mPicture == null) {
-                        mPicture = new PictureFragment();
+                case R.id.LlayMainFind:  //点击作品页面
+                    if (mFind == null) {
+                        mFind = new FindFragment();
                     }
                     //3. 设置页面
-                    mIbMainPicture.setImageResource(image1[1]);
+                    mIbMainFind.setImageResource(image1[1]);
                     mIbMainHome.setImageResource(image0[0]);
                     mIbMainRequest.setImageResource(image0[2]);
                     mIbMainMine.setImageResource(image0[3]);
 
-                    transaction.replace(R.id.FlayMainContent, mPicture);
+                    transaction.replace(R.id.FlayMainContent, mFind);
                     break;
 
                 case R.id.LlayMainRequest:      //点击需求页面
@@ -197,7 +196,7 @@ public class MainActivity extends Activity {
                     //3. 设置页面
                     mIbMainRequest.setImageResource(image1[2]);
                     mIbMainHome.setImageResource(image0[0]);
-                    mIbMainPicture.setImageResource(image0[1]);
+                    mIbMainFind.setImageResource(image0[1]);
                     mIbMainMine.setImageResource(image0[3]);
 
                     transaction.replace(R.id.FlayMainContent, mRequest);
@@ -209,7 +208,7 @@ public class MainActivity extends Activity {
                     //3. 设置页面
                     mIbMainMine.setImageResource(image1[3]);
                     mIbMainHome.setImageResource(image0[0]);
-                    mIbMainPicture.setImageResource(image0[1]);
+                    mIbMainFind.setImageResource(image0[1]);
                     mIbMainRequest.setImageResource(image0[2]);
                     transaction.replace(R.id.FlayMainContent, mMine);
                     break;
