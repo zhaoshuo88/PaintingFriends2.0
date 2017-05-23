@@ -230,11 +230,7 @@ public class HomeFragment extends Fragment {
             }
         }
     };
-    /*private void getData() {
-        lRequest.add(new HomeRequest(0,"100","标题","需求详情","联系方式","2016-1-1"));
-        lRequest.add(new HomeRequest(1,"99","zhaozhao","zhaozhaozhoa","1234","2016-1-1"));
-        lRequest.add(new HomeRequest(2,"98","zhaozhao","zhaozhaozhoa","1234","2016-1-1"));
-    }*/
+
     private void getLikeDate() {
         lLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
         lLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
