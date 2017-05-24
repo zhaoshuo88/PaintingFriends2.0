@@ -137,57 +137,6 @@ public class HomeFragment extends Fragment {
                         handler.sendMessage(message);
 
 
-//                        JSONObject jsonObject = new JSONObject(responseData);
-//                        JSONObject jsonObject = new JSONObject(responseData);
-//                        JSONArray jsonArray = jsonObject.getJSONArray("list");
-//                        for (int i = 0; i < jsonArray.length(); i++) {
-//                            JSONObject item = jsonArray.getJSONObject(i); // 得到每个对象
-//                            int id = item.getInt("rid");
-//                            String weburl = item.getString("rdate");
-//                            String username = item.getString("rdetail");
-//                            map = new HashMap<String, String>();
-//                            map.put("rid", id + "");
-//                            map.put("rdate", weburl);
-//                            map.put("rdetail",username);
-//                            list.add(map);
-//                        }
-//                        System.out.println(list.get(0));
-//                        String json = responseData;
-//                        JSONArray j = new JSONArray(json);
-//                        for (int i = 0 ; i < j.length();i++){
-//                            JSONObject item = j.getJSONObject(i);
-//                            int rid=item.getInt("rid");
-//                            String rdate = item.getString("rdate");
-////                            String rdetail = item.getString("rdetail");//URLEncoder.encode(item.getString("rdetail"),"utf-8");//item.getString("rdetail"); //URLEncoder.encode(userName.getText().toString(),"UTF-8")
-//                            String redetail = URLDecoder.decode(item.getString("rdetail"),"utf-8");
-//
-////                            byte[] b_rdetail = rdetail.getBytes("utf-8");
-////                            String r_rdetail = new String(b_rdetail,"UTF-8");
-//
-//                            int ruid = item.getInt("ruid");
-//
-//                            lRequest.add(new Requset((long)rid,R.drawable.touxiang3,"作者",redetail,rdate));
-//                            System.out.println(rid + rdate + redetail + ruid );
-//
-//                        }
-
-
-                        //System.out.println(rid + rdate + rdetail + ruid + "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-//                        if (responseData != null && responseData.length() > 0) {
-//                            JSONObject jsonObject = new JSONObject(responseData);
-//                            JSONArray jsonArray = (JSONArray)jsonObject.get("ruid");
-//                            for (int i = 0;i < 3; i++){
-//                                JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-//                                String rdate = jsonObject1.getString("rdate");
-//                                System.out.println(rdate);
-//                            }
-//                        }
-                        //Log.e("***********************",responseData);
-                        //System.out.println(responseData);
-                        in.close();
-                        /*Intent i = new Intent();
-                        i.setClass(GettimeActivity.this,TakephotoActivity.class);
-                        startActivity(i);*/
 
                     }
                 } catch (Exception e) {
@@ -232,8 +181,8 @@ public class HomeFragment extends Fragment {
     };
 
     private void getLikeDate() {
-        lLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
-        lLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
+        lLike .add(new HomeLike(0,R.drawable.yuepai,"              张三  "));
+        lLike .add(new HomeLike(1,R.drawable.yuepai,"        啦啦啦啦啦了李四"));
         lLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
         lLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
         lLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
