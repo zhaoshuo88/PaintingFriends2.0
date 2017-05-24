@@ -3,13 +3,17 @@ package com.example.administrator.paintingfriends20.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.ImageView;
 
+import com.example.administrator.paintingfriends20.MainActivity;
 import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.adapter.FindAdapter;
 import com.example.administrator.paintingfriends20.domain.Find;
@@ -24,9 +28,8 @@ import java.util.List;
 public class FindFragment extends Fragment {
 
     private View view;
-
-
     List<Find> findLists = new ArrayList<>();
+    private ImageView mIvFindAdd;
 
     @Nullable
     @Override
@@ -44,10 +47,43 @@ public class FindFragment extends Fragment {
     }
 
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        findId();
+
+        mIvFindAdd.setOnClickListener(new OnClick());
+    }
+
+
+    class OnClick implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.IvFindAdd:
+
+                    //1.创建弹出式菜单对象
+                    PopupMenu popup = new PopupMenu(getActivity(), v);
+                    //2.获取菜单填充器
+                    MenuInflater inflater = popup.getMenuInflater();
+                    //3.填充菜单
+                    inflater.inflate(R.menu.find_popupmenu,popup.getMenu());
+                    //4.绑定菜单项的点击事件
+                    //5.显示  --最重要的一部
+                    popup.show();
+                    break;
+
+            }
+        }
+    }
+
+    private void findId() {
+        mIvFindAdd = (ImageView) view.findViewById(R.id.IvFindAdd);
+    }
 
     private void initView(){
-
-
         findLists.add(new Find(1,R.drawable.touxiang1,"张三",R.drawable.details_picture));
         findLists.add(new Find(2,R.drawable.touxiang3,"张三",R.drawable.find_2));
         findLists.add(new Find(3,R.drawable.touxiang1,"张三",R.drawable.find_3));
@@ -58,8 +94,5 @@ public class FindFragment extends Fragment {
         findLists.add(new Find(8,R.drawable.touxiang1,"张三",R.drawable.find_2));
         findLists.add(new Find(9,R.drawable.touxiang1,"张三",R.drawable.details_picture));
         findLists.add(new Find(10,R.drawable.touxiang1,"张三",R.drawable.find_1));
-
-
-
     }
 }
