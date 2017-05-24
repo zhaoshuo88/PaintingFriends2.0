@@ -9,6 +9,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
+    android:orientation="vertical"
     tools:context="com.example.administrator.paintingfriends20.MainActivity">
 
         <ImageView
