@@ -1,6 +1,7 @@
 package com.example.administrator.paintingfriends20.fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -19,6 +21,7 @@ import android.widget.ViewFlipper;
 import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.adapter.HomeLikeAdapter;
 import com.example.administrator.paintingfriends20.domain.HomeLike;
+import com.example.administrator.paintingfriends20.ui.FindDetailsActivity;
 import com.example.administrator.paintingfriends20.utils.Utils;
 
 import org.json.JSONArray;
@@ -72,6 +75,7 @@ public class HomeFragment extends Fragment {
         likeAdapter = new HomeLikeAdapter(getActivity(),lLike);
         mLikeList.setAdapter(likeAdapter);
 
+
         //首页轮播图代码
         /*
         * 动态导入的方式为ViewFlipper加入子View
@@ -97,6 +101,19 @@ public class HomeFragment extends Fragment {
         flipper.setOutAnimation(leftOutAnim);
         flipper.setFlipInterval(2000);
         flipper.startFlipping();
+
+
+        /**
+         * 设置监听
+         */
+        mLikeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent();
+                intent.setClass(view.getContext(), FindDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
         //首页轮播图代码
 
