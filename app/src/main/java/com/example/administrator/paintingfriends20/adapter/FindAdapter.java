@@ -1,5 +1,6 @@
 package com.example.administrator.paintingfriends20.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.domain.Find;
+import com.example.administrator.paintingfriends20.ui.FindDetailsActivity;
 
 import java.util.List;
 
@@ -59,7 +61,15 @@ public class FindAdapter extends RecyclerView.Adapter<FindAdapter.ViewHolder>{
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.find_show_item,
                 parent,false);
-        ViewHolder holder = new ViewHolder(view);
+        final ViewHolder holder = new ViewHolder(view);
+        holder.mFindPictureShowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(v.getContext(), FindDetailsActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
         return holder;
     }
 

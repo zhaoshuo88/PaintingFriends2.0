@@ -1,4 +1,4 @@
-package com.example.administrator.paintingfriends20.fragment;
+package com.example.administrator.paintingfriends20.domain;
 
 /**
  * Created by lenovo on 2016/12/21.

@@ -7,10 +7,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/details_picture"
+            android:src="@drawable/find_details"
+            android:layout_margin="5dp"
             android:adjustViewBounds="true"/>
 
         <LinearLayout
@@ -32,6 +34,7 @@
         </LinearLayout>
 
         <ListView
+            android:id="@+id/LvFinddetailsComments"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></ListView>
     </LinearLayout>

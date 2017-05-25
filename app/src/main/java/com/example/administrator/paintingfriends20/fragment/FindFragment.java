@@ -30,6 +30,7 @@ public class FindFragment extends Fragment {
     private View view;
     List<Find> findLists = new ArrayList<>();
     private ImageView mIvFindAdd;
+    private RecyclerView recyclerView;
 
     @Nullable
     @Override
@@ -38,7 +39,7 @@ public class FindFragment extends Fragment {
         view = inflater.inflate(R.layout.activity_find,container,false);
 
         initView();
-        RecyclerView recyclerView= (RecyclerView) view.findViewById(R.id.RvPictureShow);
+        recyclerView= (RecyclerView) view.findViewById(R.id.RvPictureShow);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         FindAdapter adapter = new FindAdapter(findLists);
@@ -52,6 +53,7 @@ public class FindFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         findId();
+
 
         mIvFindAdd.setOnClickListener(new OnClick());
     }

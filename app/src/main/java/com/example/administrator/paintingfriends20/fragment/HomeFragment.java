@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.example.administrator.paintingfriends20.R;
+import com.example.administrator.paintingfriends20.adapter.HomeLikeAdapter;
+import com.example.administrator.paintingfriends20.domain.HomeLike;
 import com.example.administrator.paintingfriends20.utils.Utils;
 
 import org.json.JSONArray;
