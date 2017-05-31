@@ -3,10 +3,13 @@ package com.example.administrator.paintingfriends20.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.PopupMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -31,6 +34,7 @@ public class RequestFragment extends Fragment {
     private List<Request> lRequest = new ArrayList<>();
     private RequestAdapter requestAdapter;
     private ListView mRequestList;
+    private ImageView mIvRequestAdd;
 
     @Nullable
     @Override
@@ -38,14 +42,50 @@ public class RequestFragment extends Fragment {
         view = inflater.inflate(R.layout.activity_request, container, false);
 
         findView();
-        getData();
-
         requestAdapter = new RequestAdapter(getActivity(),lRequest);
+
+        if (mRequestList == null) {
+            System.out.println("mRequestList为空~~~~~~~~~~~");
+        }else if(requestAdapter == null){
+            System.out.println("requestAdapter为空###################");
+        }
         mRequestList.setAdapter(requestAdapter);
         return view;
     }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        getData();
+
+        mIvRequestAdd.setOnClickListener(new OnClick());
+    }
+
+    class OnClick implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.IvRequestAdd:
+
+                    //1.创建弹出式菜单对象
+                    PopupMenu popup = new PopupMenu(getActivity(), v);
+                    //2.获取菜单填充器
+                    MenuInflater inflater = popup.getMenuInflater();
+                    //3.填充菜单
+                    inflater.inflate(R.menu.request_popupmenu,popup.getMenu());
+                    //4.绑定菜单项的点击事件
+                    //5.显示  --最重要的一部
+                    popup.show();
+                    break;
+
+            }
+        }
+    }
     private void findView() {
         mRequestList = (ListView)view.findViewById(R.id.LvReqAdpview);
+        mIvRequestAdd = (ImageView) view.findViewById(R.id.IvRequestAdd);
         mHeadphoto = (ImageButton)view.findViewById(R.id.IbReqitemHeadphoto);
         mName = (TextView)view.findViewById(R.id.TvReqitemName);
         mRequest = (TextView)view.findViewById(R.id.TvReqitemRequest);
