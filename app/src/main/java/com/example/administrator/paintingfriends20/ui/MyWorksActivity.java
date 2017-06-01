@@ -1,6 +1,6 @@
-package com.example.administrator.paintingfriends20.fragment;
+package com.example.administrator.paintingfriends20.ui;
 
-import android.media.Image;
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.GridView;
@@ -14,7 +14,7 @@ import com.example.administrator.paintingfriends20.domain.HomeLike;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyworkFragment extends AppCompatActivity {
+public class MyWorksActivity extends Activity {
 
     private List<HomeLike> mwLike = new ArrayList<>();
     private HomeLikeAdapter mwlikeAdapter;
@@ -26,7 +26,7 @@ public class MyworkFragment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mywork_fragment);
+        setContentView(R.layout.activity_mywork);
 
         mwLikeList = (GridView)findViewById(R.id.mywork_grid);
         mwpic = (ImageView)findViewById(R.id.pic );

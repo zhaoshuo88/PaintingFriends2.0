@@ -1,11 +1,13 @@
 package com.example.administrator.paintingfriends20.fragment;
 
+import android.annotation.TargetApi;
 import android.app.Fragment;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class HomeFragment extends Fragment {
     private ViewFlipper flipper;
     private int[] resId = {R.drawable.yuepai,R.drawable.lala,R.drawable.gg,R.drawable.ss,R.drawable.hh};//轮播图图片
@@ -58,7 +61,7 @@ public class HomeFragment extends Fragment {
     private List<HomeLike> lLike = new ArrayList<>();
     private HomeLikeAdapter likeAdapter;
     private GridView mLikeList;
-    @Nullable
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_home, container, false);
@@ -201,16 +204,16 @@ public class HomeFragment extends Fragment {
 
     private void getLikeDate() {
         lLike .add(new HomeLike(0,R.drawable.yuepai,"              张三  "));
-        lLike .add(new HomeLike(1,R.drawable.yuepai,"        啦啦啦啦啦了李四"));
-        lLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
+        lLike .add(new HomeLike(1,R.drawable.ss,"        啦啦啦啦啦了李四"));
+        lLike .add(new HomeLike(0,R.drawable.gg,"张三  "));
+        lLike .add(new HomeLike(1,R.drawable.hh,"李四"));
+        lLike .add(new HomeLike(0,R.drawable.lala,"张三  "));
         lLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
-        lLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
-        lLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
-        lLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
-        lLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
-        lLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
-        lLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
-        lLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
+        lLike .add(new HomeLike(0,R.drawable.ss,"张三  "));
+        lLike .add(new HomeLike(1,R.drawable.gg,"李四"));
+        lLike .add(new HomeLike(0,R.drawable.hh,"张三  "));
+        lLike .add(new HomeLike(1,R.drawable.lala,"李四"));
+        lLike .add(new HomeLike(0,R.drawable.ss,"张三  "));
         lLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
     }
 }

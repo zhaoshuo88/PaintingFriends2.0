@@ -14,11 +14,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:textColor="#000000"
-            android:layout_marginStart="10dp"
-            android:text="需求"
+            android:layout_centerInParent="true"
+            android:text="我的需求"
             android:textSize="20dp"/>
 
 
@@ -28,5 +27,7 @@
         android:id="@+id/LvReqAdpview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="10dp"></ListView>
+        android:layout_marginTop="10dp"
+
+        android:dividerHeight="5dp"></ListView>
 </LinearLayout>

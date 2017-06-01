@@ -19,6 +19,7 @@ import com.example.administrator.paintingfriends20.MainActivity;
 import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.adapter.FindAdapter;
 import com.example.administrator.paintingfriends20.domain.Find;
+import com.example.administrator.paintingfriends20.ui.MyWorksActivity;
 import com.example.administrator.paintingfriends20.ui.PutRequestActivity;
 
 import java.util.ArrayList;
@@ -104,7 +105,9 @@ public class FindFragment extends Fragment {
                     startActivity(intent);
                     break;
                 case R.id.remove_find_item:
-
+                    Intent removeIntent = new Intent();
+                    removeIntent.setClass(getActivity(), MyWorksActivity.class);
+                    startActivity(removeIntent);
                     break;
             }
             return false;
