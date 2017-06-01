@@ -1,11 +1,13 @@
 package com.example.administrator.paintingfriends20.fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.PopupMenu;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.adapter.RequestAdapter;
 import com.example.administrator.paintingfriends20.domain.Request;
+import com.example.administrator.paintingfriends20.ui.PutRequestActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,12 +46,6 @@ public class RequestFragment extends Fragment {
 
         findView();
         requestAdapter = new RequestAdapter(getActivity(),lRequest);
-
-        if (mRequestList == null) {
-            System.out.println("mRequestList为空~~~~~~~~~~~");
-        }else if(requestAdapter == null){
-            System.out.println("requestAdapter为空###################");
-        }
         mRequestList.setAdapter(requestAdapter);
         return view;
     }
@@ -62,6 +59,24 @@ public class RequestFragment extends Fragment {
         mIvRequestAdd.setOnClickListener(new OnClick());
     }
 
+    class  MenuItemClick implements PopupMenu.OnMenuItemClickListener{
+
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+            switch (item.getItemId()){
+                case R.id.add_request_item:
+                    Intent intent = new Intent();
+                    intent.setClass(getActivity(), PutRequestActivity.class);
+                    startActivity(intent);
+                    break;
+
+                case R.id.remove_request_item:
+
+                    break;
+            }
+            return false;
+        }
+    }
     class OnClick implements View.OnClickListener{
 
         @Override
@@ -76,9 +91,11 @@ public class RequestFragment extends Fragment {
                     //3.填充菜单
                     inflater.inflate(R.menu.request_popupmenu,popup.getMenu());
                     //4.绑定菜单项的点击事件
+                    popup.setOnMenuItemClickListener(new MenuItemClick());
                     //5.显示  --最重要的一部
                     popup.show();
                     break;
+
 
             }
         }
