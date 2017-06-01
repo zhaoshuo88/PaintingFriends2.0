@@ -23,6 +23,7 @@
         <activity android:name=".ui.PutRequestActivity"/>
         <activity android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"
             android:configChanges="orientation|screenSize"/>
+        <activity android:name=".ui.MyWorksActivity"/>
     </application>
 
 </manifest>
