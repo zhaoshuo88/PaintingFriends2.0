@@ -16,7 +16,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.administrator.paintingfriends20.adapter.MyRequestAdapter;
-import com.example.administrator.paintingfriends20.adapter.RequestAdapter;
 import com.example.administrator.paintingfriends20.domain.MyRequestDomain;
 import com.example.administrator.paintingfriends20.domain.Request;
 import com.example.administrator.paintingfriends20.ui.PutRequestActivity;
