@@ -127,6 +127,7 @@
 
             <!-- 我的需求 -->
             <RelativeLayout
+                android:id="@+id/RlayMineRequests"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
@@ -139,6 +140,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
                     android:adjustViewBounds="true"
+                    android:onClick="false"
                     android:src="@drawable/myneed" />
 
                 <TextView
@@ -148,6 +150,7 @@
                     android:layout_marginStart="30dp"
                     android:layout_toEndOf="@id/IvMineRequest"
                     android:text="我的需求"
+                    android:onClick="false"
                     android:id="@+id/textview_myrequest"/>
 
                 <ImageView
@@ -156,6 +159,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerInParent="true"
                     android:layout_marginEnd="10dp"
+                    android:onClick="false"
                     android:src="@drawable/mine_next" />
             </RelativeLayout>
             <!-- 系统设置 -->

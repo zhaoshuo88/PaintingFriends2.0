@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.example.administrator.paintingfriends20.R;
+import com.example.administrator.paintingfriends20.ui.MyRequestsActivity;
 import com.example.administrator.paintingfriends20.ui.MyWorksActivity;
 
 /**
@@ -20,6 +21,7 @@ public class MineFragment extends Fragment {
 
     private View view;
     private RelativeLayout mRlayMineWorks;
+    private RelativeLayout mRlayMineRequests;
 
     @Nullable
     @Override
@@ -38,7 +40,15 @@ public class MineFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), MyWorksActivity.class);
+                intent.setClass(getActivity(),MyWorksActivity.class);
+                startActivity(intent);
+            }
+        });
+        mRlayMineRequests.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), MyRequestsActivity.class);
                 startActivity(intent);
             }
         });
@@ -46,5 +56,6 @@ public class MineFragment extends Fragment {
 
     private void findId() {
         mRlayMineWorks = (RelativeLayout) view.findViewById(R.id.RlayMineWorks);
+        mRlayMineRequests = (RelativeLayout) view.findViewById(R.id.RlayMineRequests);
     }
 }

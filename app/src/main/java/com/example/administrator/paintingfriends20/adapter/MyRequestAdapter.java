@@ -9,7 +9,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 
-import com.example.administrator.paintingfriends20.MyRequest;
 import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.domain.MyRequestDomain;
 
@@ -34,32 +33,32 @@ public class MyRequestAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
-        return lRequest.get(i);
+    public Object getItem(int position) {
+        return null;
     }
 
     @Override
-    public long getItemId(int i) {
-        return lRequest.get(i).getId();
+    public long getItemId(int position) {
+        return 0;
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup parent) {
+
         View v;
-        if(null == view){
-            v = LayoutInflater.from(context).inflate(R.layout.layout_request_item,null);
+        if(null == convertView){
+            v = LayoutInflater.from(context).inflate(R.layout.my_request_item,null);
 
         }else {
-            v = view;
+            v = convertView;
         }
-        ImageButton headPhoto = (ImageButton) v.findViewById(R.id.IbReqitemHeadphoto);
-        TextView TvName = (TextView) v.findViewById(R.id.TvReqitemName);
-        TvName.setText(lRequest.get(i).getName());
-        TextView TvRequest = (TextView) v.findViewById(R.id.TvReqitemRequest);
-        TvRequest.setText(lRequest.get(i).getRequest());
-        TextView TvTime = (TextView) v.findViewById(R.id.TvReqitemTime);
-        TvTime.setText(lRequest.get(i).getTime());
+        TextView mTvMyrequestitemContent = (TextView) v.findViewById(R.id.TvMyrequestitemContent);
+        mTvMyrequestitemContent.setText(lRequest.get(position).getRequest());
+        TextView mTvMyrequestitemTime = (TextView) v.findViewById(R.id.TvMyrequestitemTime);
+        mTvMyrequestitemTime.setText(lRequest.get(position).getTime());
 
         return v;
+
     }
+
 }
