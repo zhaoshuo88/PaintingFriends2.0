@@ -91,9 +91,10 @@ public class FindFragment extends Fragment {
         public boolean onMenuItemClick(MenuItem item) {
             switch (item.getItemId()){
                 case R.id.add_find_item:
-                    Intent intent = new Intent();
-                    intent.setClass(getActivity(), PutRequestActivity.class);
-                    startActivity(intent);
+
+                    break;
+                case R.id.remove_find_item:
+
                     break;
             }
             return false;
