@@ -24,6 +24,8 @@ import com.example.administrator.paintingfriends20.ui.PutRequestActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.nereo.multi_image_selector.MultiImageSelectorActivity;
+
 /**
  * Created by 15530 on 2017/5/21.
  */
@@ -91,7 +93,15 @@ public class FindFragment extends Fragment {
         public boolean onMenuItemClick(MenuItem item) {
             switch (item.getItemId()){
                 case R.id.add_find_item:
+                    Intent intent = new Intent(getActivity(), MultiImageSelectorActivity.class);
 
+                    //是否调用相机拍照
+                    intent.putExtra(MultiImageSelectorActivity.EXTRA_SHOW_CAMERA,true);
+                    //最大图片选择数量
+                    intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_COUNT,9);
+                    //设置模式(支持 单选/MultiImageSelectorActivity.EXTRA_SELECT_MODE 或者 多选/MultiImageSelectorActivity.MODE_MULTI)
+                    intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_MODE,MultiImageSelectorActivity.MODE_MULTI);
+                    startActivity(intent);
                     break;
                 case R.id.remove_find_item:
 
