@@ -97,7 +97,6 @@ public class RequestFragment extends Fragment {
                     break;
 
 
-
             }
         }
     }
