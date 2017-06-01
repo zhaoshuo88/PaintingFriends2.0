@@ -10,10 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.administrator.paintingfriends20.MainActivity;
-import com.example.administrator.paintingfriends20.MyRequest;
 import com.example.administrator.paintingfriends20.R;
-import com.example.administrator.paintingfriends20.ui.PutRequestActivity;
+import com.example.administrator.paintingfriends20.ui.MyRequestsActivity;
 
 /**
  * Created by 15530 on 2017/5/21.
@@ -33,14 +31,14 @@ public class MineFragment extends Fragment {
         textview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //MyRequestIntent();
+                MyRequestIntent();
             }
         });
         return view;
     }
     private void MyRequestIntent(){
         Intent intent = new Intent();
-        intent.setClass(getActivity(), MyRequest.class);
+        intent.setClass(getActivity(), MyRequestsActivity.class);
         startActivity(intent);
 
     }
