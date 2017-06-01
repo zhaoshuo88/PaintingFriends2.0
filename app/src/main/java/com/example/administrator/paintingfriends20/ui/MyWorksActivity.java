@@ -1,5 +1,6 @@
 package com.example.administrator.paintingfriends20.ui;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.GridView;
@@ -13,7 +14,7 @@ import com.example.administrator.paintingfriends20.domain.HomeLike;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyWorksActivity extends AppCompatActivity {
+public class MyWorksActivity extends Activity {
 
     private List<HomeLike> mwLike = new ArrayList<>();
     private HomeLikeAdapter mwlikeAdapter;

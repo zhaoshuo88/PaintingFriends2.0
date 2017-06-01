@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.adapter.RequestAdapter;
 import com.example.administrator.paintingfriends20.domain.Request;
+import com.example.administrator.paintingfriends20.ui.MyRequestsActivity;
 import com.example.administrator.paintingfriends20.ui.PutRequestActivity;
 
 import java.util.ArrayList;
@@ -71,7 +72,9 @@ public class RequestFragment extends Fragment {
                     break;
 
                 case R.id.remove_request_item:
-
+                    Intent removeRequestIntent = new Intent();
+                    removeRequestIntent.setClass(getActivity(), MyRequestsActivity.class);
+                    startActivity(removeRequestIntent);
                     break;
             }
             return false;

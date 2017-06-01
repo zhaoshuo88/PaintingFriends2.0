@@ -1,5 +1,6 @@
 package com.example.administrator.paintingfriends20.ui;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
@@ -17,7 +18,7 @@ import com.example.administrator.paintingfriends20.domain.MyRequestDomain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyRequestsActivity extends AppCompatActivity {
+public class MyRequestsActivity extends Activity {
 
     private ListView mLvReqAdpview;
     private List<MyRequestDomain> requestLists = new ArrayList<>();
