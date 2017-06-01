@@ -69,6 +69,10 @@ public class RequestFragment extends Fragment {
                     intent.setClass(getActivity(), PutRequestActivity.class);
                     startActivity(intent);
                     break;
+
+                case R.id.remove_request_item:
+
+                    break;
             }
             return false;
         }
@@ -91,6 +95,8 @@ public class RequestFragment extends Fragment {
                     //5.显示  --最重要的一部
                     popup.show();
                     break;
+
+
 
             }
         }
