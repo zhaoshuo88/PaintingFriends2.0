@@ -40,7 +40,7 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
     private ViewFlipper flipper;
-    private int[] resId = {R.drawable.yuepai,R.drawable.yuepai,R.drawable.bar,R.drawable.bar,R.drawable.bar};//轮播图图片
+    private int[] resId = {R.drawable.yuepai,R.drawable.lala,R.drawable.gg,R.drawable.ss,R.drawable.hh};//轮播图图片
     //最新需求
     private TextView num;
     private TextView title;
