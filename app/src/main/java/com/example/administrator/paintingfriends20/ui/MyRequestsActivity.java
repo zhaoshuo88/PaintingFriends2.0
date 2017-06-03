@@ -27,7 +27,7 @@ public class MyRequestsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myrequest);
 
-        mLvReqAdpview = (ListView) findViewById(R.id.LvReqAdpview);
+        mLvReqAdpview = (ListView) findViewById(R.id.LvMyrequestLists);
         getrequestListsDate();
         MyRequestAdapter adapter = new MyRequestAdapter(getApplicationContext(), requestLists);
         mLvReqAdpview.setAdapter(adapter);

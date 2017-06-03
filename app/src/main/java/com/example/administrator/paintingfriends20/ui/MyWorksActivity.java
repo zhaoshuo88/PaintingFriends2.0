@@ -39,17 +39,17 @@ public class MyWorksActivity extends Activity {
     }
 
     private void getmwLikeDate() {
-        mwLike .add(new HomeLike(0,R.drawable.yuepai,"              张三  "));
-        mwLike .add(new HomeLike(1,R.drawable.yuepai,"        啦啦啦啦啦了李四"));
-        mwLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
-        mwLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
-        mwLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
-        mwLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
-        mwLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
-        mwLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
-        mwLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
-        mwLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
-        mwLike .add(new HomeLike(0,R.drawable.yuepai,"张三  "));
-        mwLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
+        mwLike .add(new HomeLike(0,R.drawable.yuepai," 2014年8月9日 "));
+        mwLike .add(new HomeLike(1,R.drawable.yuepai,"        2014年8月9日"));
+        mwLike .add(new HomeLike(0,R.drawable.yuepai,"2014年8月9日  "));
+        mwLike .add(new HomeLike(1,R.drawable.yuepai,"2014年8月9日"));
+        mwLike .add(new HomeLike(0,R.drawable.yuepai,"2014年8月9日  "));
+        mwLike .add(new HomeLike(1,R.drawable.yuepai,"2014年8月9日"));
+        mwLike .add(new HomeLike(0,R.drawable.yuepai,"2014年8月9日  "));
+        mwLike .add(new HomeLike(1,R.drawable.yuepai,"2014年8月9日"));
+        mwLike .add(new HomeLike(0,R.drawable.yuepai,"2014年8月9日  "));
+        mwLike .add(new HomeLike(1,R.drawable.yuepai,"2014年8月9日"));
+        mwLike .add(new HomeLike(0,R.drawable.yuepai,"2014年8月9日  "));
+        mwLike .add(new HomeLike(1,R.drawable.yuepai,"2014年8月9日"));
     }
 }

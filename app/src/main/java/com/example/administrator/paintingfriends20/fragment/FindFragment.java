@@ -27,16 +27,20 @@ import java.util.List;
 
 import me.nereo.multi_image_selector.MultiImageSelectorActivity;
 
+import static android.app.Activity.RESULT_OK;
+
 /**
  * Created by 15530 on 2017/5/21.
  */
 
 public class FindFragment extends Fragment {
 
+    private static final int REQUEST_IMAGE = 1 ;
     private View view;
     List<Find> findLists = new ArrayList<>();
     private ImageView mIvFindAdd;
     private RecyclerView recyclerView;
+
 
     @Nullable
     @Override
@@ -102,7 +106,7 @@ public class FindFragment extends Fragment {
                     intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_COUNT,9);
                     //设置模式(支持 单选/MultiImageSelectorActivity.EXTRA_SELECT_MODE 或者 多选/MultiImageSelectorActivity.MODE_MULTI)
                     intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_MODE,MultiImageSelectorActivity.MODE_MULTI);
-                    startActivity(intent);
+                    startActivityForResult(intent,REQUEST_IMAGE);
                     break;
                 case R.id.remove_find_item:
                     Intent removeIntent = new Intent();
@@ -113,6 +117,19 @@ public class FindFragment extends Fragment {
             return false;
         }
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_IMAGE){
+            if(resultCode == RESULT_OK){
+                //获取返回的图片列表
+                List<String> path = data.getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT);
+                //处理自己的逻辑
+            }
+        }
+    }
+
     private void findId() {
         mIvFindAdd = (ImageView) view.findViewById(R.id.IvFindAdd);
     }

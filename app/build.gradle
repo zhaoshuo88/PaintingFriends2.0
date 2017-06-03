@@ -27,4 +27,5 @@ dependencies {
     compile project(':multi-image-selector')
     compile 'org.jetbrains:annotations-java5:15.0'
     compile 'org.jetbrains:annotations-java5:15.0'
+
 }
