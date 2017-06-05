@@ -84,7 +84,7 @@ public class FindAdapter extends RecyclerView.Adapter<FindAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Find find = mFindLists.get(position);
-        holder.mFindPictureImage.setImageResource(find.getImage());
+        holder.mFindPictureImage.setImageBitmap(find.getImage());
         holder.mFindHeadPortrait.setImageResource(find.getHeadPortrait());
         holder.mFindName.setText(find.getName());
     }

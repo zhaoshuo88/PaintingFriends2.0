@@ -147,7 +147,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:onClick="click"
-                    android:id="@+id/textview_myrequest"/>
+                    android:id="@+id/TvMineMyrequest"/>
 
                 <ImageView
                     android:layout_width="wrap_content"

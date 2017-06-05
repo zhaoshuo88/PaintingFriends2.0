@@ -38,16 +38,16 @@ public class MyRequestsActivity extends Activity {
         MyRequestAdapter adapter = new MyRequestAdapter(getApplicationContext(), requestLists);
         mLvReqAdpview.setAdapter(adapter);
 
-        btn = (Button)findViewById(R.id.btn_request);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(MyRequestsActivity.this, MainActivity.class);
-                //intent.putExtra("page",4);
-                startActivity(intent);
-            }
-        });
+//        btn = (Button)findViewById(R.id.btn_request);
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(MyRequestsActivity.this, MainActivity.class);
+//                //intent.putExtra("page",4);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     private void getrequestListsDate() {

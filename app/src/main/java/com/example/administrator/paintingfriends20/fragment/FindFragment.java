@@ -2,11 +2,16 @@ package com.example.administrator.paintingfriends20.fragment;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,7 +26,18 @@ import com.example.administrator.paintingfriends20.adapter.FindAdapter;
 import com.example.administrator.paintingfriends20.domain.Find;
 import com.example.administrator.paintingfriends20.ui.MyWorksActivity;
 import com.example.administrator.paintingfriends20.ui.PutRequestActivity;
+import com.example.administrator.paintingfriends20.utils.Utils;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +56,7 @@ public class FindFragment extends Fragment {
     List<Find> findLists = new ArrayList<>();
     private ImageView mIvFindAdd;
     private RecyclerView recyclerView;
-
+    String urls = Utils.URL + "upload/";
 
     @Nullable
     @Override
@@ -63,7 +79,6 @@ public class FindFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         findId();
-
 
         mIvFindAdd.setOnClickListener(new OnClick());
     }
@@ -135,15 +150,106 @@ public class FindFragment extends Fragment {
     }
 
     private void initView(){
-        findLists.add(new Find(1,R.drawable.touxiang1,"张三",R.drawable.details_picture));
-        findLists.add(new Find(2,R.drawable.touxiang3,"张三",R.drawable.find_2));
-        findLists.add(new Find(3,R.drawable.touxiang1,"张三",R.drawable.find_3));
-        findLists.add(new Find(4,R.drawable.touxiang3,"张三",R.drawable.find_4));
-        findLists.add(new Find(5,R.drawable.touxiang1,"张三",R.drawable.details_picture));
-        findLists.add(new Find(6,R.drawable.touxiang3,"张三",R.drawable.find_1));
-        findLists.add(new Find(7,R.drawable.touxiang1,"张三",R.drawable.find_3));
-        findLists.add(new Find(8,R.drawable.touxiang1,"张三",R.drawable.find_2));
-        findLists.add(new Find(9,R.drawable.touxiang1,"张三",R.drawable.details_picture));
-        findLists.add(new Find(10,R.drawable.touxiang1,"张三",R.drawable.find_1));
+
+        new  Thread(){
+            @Override
+            public void run() {
+                try {
+                    String urlRequestfragmentPath = Utils.URL + "draw/?obj=9";
+
+                    //从网络上下载图片
+                    URL url = new URL(urlRequestfragmentPath);
+
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                    if (conn.getResponseCode() == 200){
+
+                        //获得服务器响应数据
+                        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+
+                        //数据
+                        String retData = null;
+                        String responseData = "";
+                        while ((retData = in.readLine()) != null){
+                            responseData += retData;
+                        }
+
+                        System.out.println(responseData);
+
+                        JSONArray j = new JSONArray(responseData);
+                        for (int i = 0 ; i < j.length();i++){
+                            JSONObject item = j.getJSONObject(i);
+                            int did = item.getInt("did");     //图片id
+                            String durl = item.getString("durl");   //图片地址
+                            int dlike=item.getInt("dlike");     //图片点赞数
+                            int udid=item.getInt("udid");   //图片发布人id
+
+
+                            URL urldown = new URL(urls + durl);
+                            File file = new File(getActivity().getCacheDir(), Base64.encodeToString(urldown.toString().getBytes(), Base64.DEFAULT));
+                            if (file.exists() && file.length() > 0){
+                                System.out.println("使用缓存图片~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                //使用缓存图片
+                                Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+
+                                Message msg = Message.obtain();
+                                msg.obj = bitmap;
+                                handler.sendMessage(msg);
+                            }else {
+                                //从服务器端获取图片
+                                System.out.println("使用网络图片~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                HttpURLConnection httpURLConnection = (HttpURLConnection) urldown.openConnection();
+
+                                //1.设置请求方式
+                                httpURLConnection.setRequestMethod("GET");
+
+                                //2.设置请求时间
+                                httpURLConnection.setConnectTimeout(5000);
+
+                                //3.设置请求码
+                                int code = httpURLConnection.getResponseCode();
+                                if (code == 200){
+                                    //请求成功
+                                    InputStream inputStream = httpURLConnection.getInputStream();
+
+                                    //文件缓存
+                                    FileOutputStream fos = new FileOutputStream(file);
+                                    int len;
+                                    byte[] buffer = new byte[1024];
+                                    while((len = inputStream.read(buffer)) != -1){
+                                        fos.write(buffer,0,len);
+                                    }
+
+                                    fos.close();
+                                    inputStream.close();
+
+                                    Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                                    Message msg = Message.obtain();
+                                    msg.obj = bitmap;
+                                    handler.sendMessage(msg);
+
+                                }
+                            }
+
+                        }
+                        in.close();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+
+
     }
+
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            Bitmap obj = (Bitmap) msg.obj;
+            findLists.add(new Find(1,R.drawable.touxiang1,"张三",obj));
+        }
+    };
 }

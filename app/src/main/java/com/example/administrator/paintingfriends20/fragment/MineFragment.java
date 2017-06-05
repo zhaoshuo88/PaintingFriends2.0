@@ -20,15 +20,15 @@ import com.example.administrator.paintingfriends20.ui.MyRequestsActivity;
 public class MineFragment extends Fragment {
 
     private View view;
-    private TextView textview;
+    private TextView mTvMineMyrequest;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         view = inflater.inflate(R.layout.activity_mine,container,false);
-        textview = (TextView) view.findViewById(R.id.textview_myrequest);
-        textview.setOnClickListener(new View.OnClickListener() {
+        mTvMineMyrequest = (TextView) view.findViewById(R.id.TvMineMyrequest);
+        mTvMineMyrequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MyRequestIntent();
