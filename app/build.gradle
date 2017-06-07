@@ -27,5 +27,6 @@ dependencies {
     compile project(':multi-image-selector')
     compile 'org.jetbrains:annotations-java5:15.0'
     compile 'org.jetbrains:annotations-java5:15.0'
-
+    compile files('libs/android-async-http-1.4.5.jar')
+    compile files('libs/org.apache.http.legacy.jar')
 }

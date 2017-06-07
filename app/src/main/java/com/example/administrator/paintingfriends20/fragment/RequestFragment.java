@@ -61,16 +61,13 @@ public class RequestFragment extends Fragment {
 
         findView();
         getData();
-        requestAdapter = new RequestAdapter(getActivity(),lRequest);
-        mRequestList.setAdapter(requestAdapter);
+
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-
 
         mIvRequestAdd.setOnClickListener(new OnClick());
     }
@@ -83,7 +80,8 @@ public class RequestFragment extends Fragment {
                 case R.id.add_request_item:
                     Intent intent = new Intent();
                     intent.setClass(getActivity(), PutRequestActivity.class);
-                    startActivity(intent);
+//                    startActivity(intent);
+                    startActivityForResult(intent,1);
                     break;
 
                 case R.id.remove_request_item:
@@ -95,6 +93,15 @@ public class RequestFragment extends Fragment {
             return false;
         }
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == 2){
+           getData();
+        }
+    }
+
     class OnClick implements View.OnClickListener{
 
         @Override
@@ -150,7 +157,6 @@ public class RequestFragment extends Fragment {
                         while ((retData = in.readLine()) != null){
                             responseData += retData;
                         }
-
                         //通知主线程更新UI
                         Message message = new Message();
                         message.what = 1;
@@ -195,11 +201,13 @@ public class RequestFragment extends Fragment {
                         String redetail = URLDecoder.decode(item.getString("rdetail"),"utf-8");
 
                         int ruid = item.getInt("ruid");
-                        String name = item.getString("rname");
+                        String name = item.getString("uname");
                         lRequest.add(new Request((long)rid,R.drawable.touxiang3,name,redetail,rdate));
                         System.out.println(rid + rdate + redetail + ruid );
 
                     }
+
+                    requestAdapter = new RequestAdapter(getActivity(),lRequest);
                     mRequestList.setAdapter(requestAdapter);
                 } catch (JSONException e) {
                     e.printStackTrace();

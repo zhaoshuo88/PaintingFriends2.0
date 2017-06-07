@@ -1,7 +1,9 @@
 package com.example.administrator.paintingfriends20.fragment;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.administrator.paintingfriends20.MainActivity;
 import com.example.administrator.paintingfriends20.R;
@@ -27,12 +30,17 @@ import com.example.administrator.paintingfriends20.domain.Find;
 import com.example.administrator.paintingfriends20.ui.MyWorksActivity;
 import com.example.administrator.paintingfriends20.ui.PutRequestActivity;
 import com.example.administrator.paintingfriends20.utils.Utils;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
+import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -141,6 +149,53 @@ public class FindFragment extends Fragment {
                 //获取返回的图片列表
                 List<String> path = data.getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT);
                 //处理自己的逻辑
+                SharedPreferences preferences = getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
+                int uid = preferences.getInt("id", 0);
+                for (int i = 0; i < path.size(); i++) {
+                    String imageFile = path.get(i);
+                    File file = new File(imageFile);
+                    if (file.exists() && file.length() > 0) {
+                        AsyncHttpClient client = new AsyncHttpClient();
+
+                        RequestParams params=new RequestParams();
+
+                        params.put("uid",uid);
+                        try {
+                            params.put("img",file);
+
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                        String urls = Utils.URL + "draw/add";
+
+                        client.post(urls, params, new AsyncHttpResponseHandler() {
+                            @Override
+                            public void onSuccess(int i, Header[] headers, byte[] bytes) {
+                                String result=new String(bytes);
+                                System.out.print(result);
+
+                                if(result.equals("1")){
+
+                                    Toast.makeText(getActivity(),"发布成功",Toast.LENGTH_SHORT).show();
+                                    Intent m=new Intent(getActivity(),MainActivity.class);
+
+                                    startActivity(m);
+                                }
+                                else{
+
+                                    Toast.makeText(getActivity(),"发布失败",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+
+                            @Override
+                            public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                                Toast.makeText(getActivity(),"发布失败",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                    }
+                }
             }
         }
     }
@@ -195,6 +250,7 @@ public class FindFragment extends Fragment {
                                 Message msg = Message.obtain();
                                 msg.obj = bitmap;
                                 handler.sendMessage(msg);
+
                             }else {
                                 //从服务器端获取图片
                                 System.out.println("使用网络图片~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
