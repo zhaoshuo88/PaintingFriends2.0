@@ -33,6 +33,7 @@ import com.example.administrator.paintingfriends20.utils.Utils;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
@@ -76,7 +77,7 @@ public class FindFragment extends Fragment {
         recyclerView= (RecyclerView) view.findViewById(R.id.RvPictureShow);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        FindAdapter adapter = new FindAdapter(findLists);
+        FindAdapter adapter = new FindAdapter(findLists,getActivity());
         recyclerView.setAdapter(adapter);
         return view;
     }
@@ -141,6 +142,12 @@ public class FindFragment extends Fragment {
         }
     }
 
+    /**
+     * 发布作品
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -238,54 +245,68 @@ public class FindFragment extends Fragment {
                             String durl = item.getString("durl");   //图片地址
                             int dlike=item.getInt("dlike");     //图片点赞数
                             int udid=item.getInt("udid");   //图片发布人id
+                            String uimage = item.getString("uimage");   //图片发布人头像
+                            String uname = item.getString("uname");
 
-
-                            URL urldown = new URL(urls + durl);
-                            File file = new File(getActivity().getCacheDir(), Base64.encodeToString(urldown.toString().getBytes(), Base64.DEFAULT));
-                            if (file.exists() && file.length() > 0){
-                                System.out.println("使用缓存图片~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                //使用缓存图片
-                                Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
-
-                                Message msg = Message.obtain();
-                                msg.obj = bitmap;
-                                handler.sendMessage(msg);
-
-                            }else {
-                                //从服务器端获取图片
-                                System.out.println("使用网络图片~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                HttpURLConnection httpURLConnection = (HttpURLConnection) urldown.openConnection();
-
-                                //1.设置请求方式
-                                httpURLConnection.setRequestMethod("GET");
-
-                                //2.设置请求时间
-                                httpURLConnection.setConnectTimeout(5000);
-
-                                //3.设置请求码
-                                int code = httpURLConnection.getResponseCode();
-                                if (code == 200){
-                                    //请求成功
-                                    InputStream inputStream = httpURLConnection.getInputStream();
-
-                                    //文件缓存
-                                    FileOutputStream fos = new FileOutputStream(file);
-                                    int len;
-                                    byte[] buffer = new byte[1024];
-                                    while((len = inputStream.read(buffer)) != -1){
-                                        fos.write(buffer,0,len);
-                                    }
-
-                                    fos.close();
-                                    inputStream.close();
-
-                                    Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
-                                    Message msg = Message.obtain();
-                                    msg.obj = bitmap;
-                                    handler.sendMessage(msg);
-
-                                }
-                            }
+//                            System.out.println(uimage + "((((((((((((((((((((((((((((((");
+//                            System.out.println(durl + "))))))))))))))))))))))");
+                            String uimageUrl = urls + uimage;
+                            String durlUrl = urls + durl;
+                            findLists.add(new Find(did,uimageUrl,uname,durlUrl));
+//                            URL urldown = new URL(urls + durl);
+////                            Picasso.with(getActivity())
+//                            File file = new File(getActivity().getCacheDir(), Base64.encodeToString(urldown.toString().getBytes(), Base64.DEFAULT));
+//                            if (file.exists() && file.length() > 0){
+//                                System.out.println("使用缓存图片~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+//                                //使用缓存图片
+//                                Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+////                                Picasso.with(getActivity()).load(urls + durl).
+//
+//                                Message msg = Message.obtain();
+//                                msg.obj = bitmap;
+//                                handler.sendMessage(msg);
+//
+//                            }else {
+//                                //从服务器端获取图片
+//                                System.out.println("使用网络图片~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+//
+//                                Bitmap bitmap = Picasso.with(getActivity()).load(urls + durl).get();
+////                                Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+//                                Message msg = Message.obtain();
+//                                msg.obj = bitmap;
+//                                handler.sendMessage(msg);
+////                                HttpURLConnection httpURLConnection = (HttpURLConnection) urldown.openConnection();
+////
+////                                //1.设置请求方式
+////                                httpURLConnection.setRequestMethod("GET");
+////
+////                                //2.设置请求时间
+////                                httpURLConnection.setConnectTimeout(5000);
+////
+////                                //3.设置请求码
+////                                int code = httpURLConnection.getResponseCode();
+////                                if (code == 200){
+////                                    //请求成功
+////                                    InputStream inputStream = httpURLConnection.getInputStream();
+////
+////                                    //文件缓存
+////                                    FileOutputStream fos = new FileOutputStream(file);
+////                                    int len;
+////                                    byte[] buffer = new byte[1024];
+////                                    while((len = inputStream.read(buffer)) != -1){
+////                                        fos.write(buffer,0,len);
+////                                    }
+////
+////                                    fos.close();
+////                                    inputStream.close();
+////
+////                                    Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+////                                    Message msg = Message.obtain();
+////                                    msg.obj = bitmap;
+////                                    handler.sendMessage(msg);
+////
+////                                }
+//                            }
 
                         }
                         in.close();
@@ -299,13 +320,13 @@ public class FindFragment extends Fragment {
 
 
     }
-
-    private Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            Bitmap obj = (Bitmap) msg.obj;
-            findLists.add(new Find(1,R.drawable.touxiang1,"张三",obj));
-        }
-    };
+//
+//    private Handler handler = new Handler(){
+//        @Override
+//        public void handleMessage(Message msg) {
+//            super.handleMessage(msg);
+//            Bitmap obj = (Bitmap) msg.obj;
+//            //findLists.add(new Find(1,R.drawable.touxiang1,"张三",obj));
+//        }
+//    };
 }

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.domain.Request;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +54,7 @@ public class RequestAdapter extends BaseAdapter {
             v = view;
         }
         ImageButton headPhoto = (ImageButton) v.findViewById(R.id.IbReqitemHeadphoto);
-        headPhoto.setImageResource(lRequest.get(i).getHeadPhoto());
+        Picasso.with(context).load(lRequest.get(i).getHeadPhoto()).into(headPhoto);
         TextView TvName = (TextView) v.findViewById(R.id.TvReqitemName);
         TvName.setText(lRequest.get(i).getName());
         TextView TvRequest = (TextView) v.findViewById(R.id.TvReqitemRequest);

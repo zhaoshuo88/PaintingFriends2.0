@@ -1,5 +1,6 @@
 package com.example.administrator.paintingfriends20.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.domain.Find;
 import com.example.administrator.paintingfriends20.ui.FindDetailsActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ import java.util.List;
 public class FindAdapter extends RecyclerView.Adapter<FindAdapter.ViewHolder>{
 
     private List<Find> mFindLists;
+    private Context context;
 
 
     static class ViewHolder extends RecyclerView.ViewHolder{
@@ -46,8 +49,14 @@ public class FindAdapter extends RecyclerView.Adapter<FindAdapter.ViewHolder>{
      * 用于把要展示的数据源传进来，并赋值给一个全区变量m
      * @param mFindLists
      */
-    public FindAdapter(List<Find> mFindLists) {
+//    public FindAdapter(List<Find> mFindLists) {
+//        this.mFindLists = mFindLists;
+//    }
+
+
+    public FindAdapter(List<Find> mFindLists, Context context) {
         this.mFindLists = mFindLists;
+        this.context = context;
     }
 
     /**
@@ -84,8 +93,12 @@ public class FindAdapter extends RecyclerView.Adapter<FindAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Find find = mFindLists.get(position);
-        holder.mFindPictureImage.setImageBitmap(find.getImage());
-        holder.mFindHeadPortrait.setImageResource(find.getHeadPortrait());
+        System.out.println(find.getImage()+ "!!!!!!!!!!!!!!!!!!");
+        Picasso.with(context).load(find.getImage()).into(holder.mFindPictureImage);
+//        holder.mFindPictureImage.setImageBitmap(find.getImage());
+        System.out.println(find.getHeadPortrait()+ "----------------------------");
+        Picasso.with(context).load(find.getHeadPortrait()).into(holder.mFindHeadPortrait);
+//        holder.mFindHeadPortrait.setImageResource(find.getHeadPortrait());
         holder.mFindName.setText(find.getName());
     }
 

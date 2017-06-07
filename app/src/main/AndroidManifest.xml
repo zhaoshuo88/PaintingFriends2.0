@@ -43,6 +43,8 @@
             android:configChanges="orientation|screenSize"/>
         <activity android:name=".ui.MyWorksActivity"/>
         <activity android:name=".ui.MyRequestsActivity"/>
+
     </application>
+
 
 </manifest>

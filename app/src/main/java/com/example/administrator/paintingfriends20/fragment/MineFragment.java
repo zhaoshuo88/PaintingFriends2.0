@@ -23,6 +23,7 @@ import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.ui.MyRequestsActivity;
 import com.example.administrator.paintingfriends20.ui.MyWorksActivity;
 import com.example.administrator.paintingfriends20.utils.Utils;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -95,8 +96,9 @@ public class MineFragment extends Fragment {
 
         mTvMineName.setText(name);
 
-        HeadThread headThread = new HeadThread();
-        headThread.start();
+        Picasso.with(getActivity()).load(Utils.URL + "upload/" + headportrait).into(mIvMineHeadportrait);
+//        HeadThread headThread = new HeadThread();
+//        headThread.start();
 
     }
 
