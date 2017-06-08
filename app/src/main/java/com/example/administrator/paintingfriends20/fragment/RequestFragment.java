@@ -202,8 +202,8 @@ public class RequestFragment extends Fragment {
 
                         int ruid = item.getInt("ruid");
                         String name = item.getString("uname");
-                        lRequest.add(new Request((long)rid,R.drawable.touxiang3,name,redetail,rdate));
-                        System.out.println(rid + rdate + redetail + ruid );
+                        String uimage = item.getString("uimage");   //用户头像
+                        lRequest.add(new Request((long)rid,Utils.URL + "upload/" + uimage,name,redetail,rdate));
 
                     }
 

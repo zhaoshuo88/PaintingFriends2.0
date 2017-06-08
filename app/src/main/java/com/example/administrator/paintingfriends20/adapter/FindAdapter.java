@@ -2,6 +2,7 @@ package com.example.administrator.paintingfriends20.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +27,7 @@ public class FindAdapter extends RecyclerView.Adapter<FindAdapter.ViewHolder>{
     private Context context;
 
 
-    static class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder {
 
         View mFindPictureShowView;
         ImageView mFindPictureImage;
@@ -42,7 +43,27 @@ public class FindAdapter extends RecyclerView.Adapter<FindAdapter.ViewHolder>{
             mFindPictureImage = (ImageView) itemView.findViewById(R.id.IvFindshowitemImage);
             mFindHeadPortrait = (ImageView) itemView.findViewById(R.id.IvFindshowitemHeadportrait);
             mFindName = (TextView) itemView.findViewById(R.id.TvFindshowitemName);
+
+//            mFindPictureImage.setOnClickListener(this);
+//            mFindHeadPortrait.setOnClickListener(this);
+//            mFindName.setOnClickListener(this);
+//
+//            mFindPictureImage.setTag(this);
+//            mFindHeadPortrait.setTag(this);
+//            mFindName.setTag(this);
         }
+
+//        @Override
+//        public void onClick(View v) {
+//            ViewHolder tag = (ViewHolder) v.getTag();
+//            Intent intent = new Intent(v.getContext(), FindDetailsActivity.class);
+//            Bundle bundle = new Bundle();
+//
+//            intent.putExtra("name",tag.mFindName.getText().toString());
+//            intent.putExtra("headphoto",(ImageView)v.getResources());
+//            intent.putExtra("name",tag.mFindName.toString());
+//            intent.putExtra("")
+//        }
     }
 
     /**
@@ -71,14 +92,16 @@ public class FindAdapter extends RecyclerView.Adapter<FindAdapter.ViewHolder>{
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.find_show_item,
                 parent,false);
         final ViewHolder holder = new ViewHolder(view);
-        holder.mFindPictureShowView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(v.getContext(), FindDetailsActivity.class);
-                v.getContext().startActivity(intent);
-            }
-        });
+
+//        holder.mFindPictureImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(v.getContext(), FindDetailsActivity.class);
+//                intent.putExtra(fin)
+//                v.getContext().startActivity(intent);
+//            }
+//        });
         return holder;
     }
 
@@ -92,11 +115,22 @@ public class FindAdapter extends RecyclerView.Adapter<FindAdapter.ViewHolder>{
      */
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Find find = mFindLists.get(position);
-        System.out.println(find.getImage()+ "!!!!!!!!!!!!!!!!!!");
+        final Find find = mFindLists.get(position);
         Picasso.with(context).load(find.getImage()).into(holder.mFindPictureImage);
+        holder.mFindPictureImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.putExtra("imageId",find.getId());
+                intent.putExtra("image",find.getImage());
+                intent.putExtra("head",find.getHeadPortrait());
+                intent.putExtra("name",find.getName());
+
+                intent.setClass(context,FindDetailsActivity.class);
+                context.startActivity(intent);
+            }
+        });
 //        holder.mFindPictureImage.setImageBitmap(find.getImage());
-        System.out.println(find.getHeadPortrait()+ "----------------------------");
         Picasso.with(context).load(find.getHeadPortrait()).into(holder.mFindHeadPortrait);
 //        holder.mFindHeadPortrait.setImageResource(find.getHeadPortrait());
         holder.mFindName.setText(find.getName());
