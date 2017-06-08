@@ -5,19 +5,19 @@
     android:background="@color/ll"
     android:weightSum="1">
 
-    <!-- 个人设置 -->
+    <!-- 个人信息 -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:layout_marginTop="30dp">
+        android:background="@color/black"
+        android:layout_marginTop="0dp">
 
         <ImageView
             android:id="@+id/IvSettingPerson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="5dp"
             android:adjustViewBounds="true"
             android:src="@drawable/btn_back" />
@@ -28,7 +28,8 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="0dp"
             android:layout_toEndOf="@id/IvSettingPerson"
-            android:text="设置"
+            android:text="个人信息"
+            android:textColor="@color/white"
             android:textSize="22dp"/>
 
 
@@ -37,36 +38,26 @@
     <!-- 账号设置 -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
         android:background="@color/white"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="22dp"
         android:layout_weight="0.06">
-
-        <ImageView
-            android:id="@+id/IvSettingAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:adjustViewBounds="true"
-            />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="0dp"
-            android:layout_toEndOf="@id/IvSettingAccount"
-            android:text="清除图片缓存"
-            android:textSize="13dp"/>
+            android:layout_marginStart="19dp"
+
+            android:text="头像"
+            android:textSize="19dp"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
-            android:layout_marginEnd="10dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/touxiang1"
             />
     </RelativeLayout>
 
@@ -75,33 +66,27 @@
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:background="@color/white"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="2dp">
 
-        <ImageView
-            android:id="@+id/IvSettingAbout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:adjustViewBounds="true"
-            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="0dp"
-            android:layout_toEndOf="@id/IvSettingAbout"
-            android:text="设置图片保存路径"
-            android:textSize="13dp"/>
+            android:layout_marginStart="19dp"
 
-        <ImageView
+            android:text="昵称"
+            android:textSize="19dp"/>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginEnd="10dp"
+            android:text="张三"
+            android:textColor="@color/gray"
+            android:textSize="13dp"
             />
     </RelativeLayout>
 
@@ -110,33 +95,27 @@
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:background="@color/white"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="11dp">
 
-        <ImageView
-            android:id="@+id/IvSettingFeedback"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:adjustViewBounds="true"
-            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="0dp"
-            android:layout_toEndOf="@id/IvSettingFeedback"
-            android:text="用户反馈"
-            android:textSize="13dp"/>
+            android:layout_marginStart="19dp"
 
-        <ImageView
+            android:text="联系方式"
+            android:textSize="19dp"/>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginEnd="10dp"
+            android:text="1232134141"
+            android:textColor="@color/gray"
+            android:textSize="13dp"
             />
     </RelativeLayout>
 
@@ -147,32 +126,26 @@
         android:background="@color/white"
         android:layout_marginTop="10dp">
 
-        <ImageView
-            android:id="@+id/IvSettingClearcache"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:adjustViewBounds="true"
-            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="0dp"
-            android:layout_toEndOf="@id/IvSettingClearcache"
-            android:text="版本更新"
-            android:textSize="13dp"/>
+            android:layout_marginStart="19dp"
 
-        <ImageView
+            android:text="QQ"
+            android:textSize="19dp"/>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginEnd="10dp"
-             />
+            android:text="22342342"
+            android:textColor="@color/gray"
+            android:textSize="13dp"
+            />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"

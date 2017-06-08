@@ -20,6 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.administrator.paintingfriends20.R;
+import com.example.administrator.paintingfriends20.ui.Mine;
 import com.example.administrator.paintingfriends20.ui.MyRequestsActivity;
 import com.example.administrator.paintingfriends20.ui.MyWorksActivity;
 import com.example.administrator.paintingfriends20.utils.Utils;
@@ -49,6 +50,7 @@ public class MineFragment extends Fragment {
     private TextView mTvMineName;
     private String name;
     private ImageView mIvMineHeadportrait;
+    private RelativeLayout personal;
 
     @Nullable
     @Override
@@ -56,6 +58,14 @@ public class MineFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         view = inflater.inflate(R.layout.activity_mine,container,false);
         findId();
+        personal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(),Mine.class);
+                startActivity(intent);
+            }
+        });
         mRlayMineRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,17 +83,18 @@ public class MineFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        
-        
+
+
         return view;
     }
 
     private void findId() {
+        personal = (RelativeLayout) view.findViewById(R.id.Personal);
         mTvMineName = (TextView) view.findViewById(R.id.TvMineName);
         mRlayMineRequest = (RelativeLayout) view.findViewById(R.id.RlayMineRequest);
         mRlayMineWorks = (RelativeLayout) view.findViewById(R.id.RlayMineWorks);
         mIvMineHeadportrait = (ImageView)view.findViewById(R.id.IvMineHeadportrait);
-        
+
     }
 
 
