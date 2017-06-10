@@ -44,6 +44,7 @@
         <activity android:name=".ui.MyWorksActivity"/>
         <activity android:name=".ui.MyRequestsActivity"/>
         <activity android:name=".ui.Mine"/>
+        <activity android:name=".ui.OtherWorksActivity"/>
 
     </application>
 

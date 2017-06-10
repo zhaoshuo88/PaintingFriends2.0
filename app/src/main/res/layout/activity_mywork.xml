@@ -6,15 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.administrator.paintingfriends20.ui.MyWorksActivity">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:fadingEdge="vertical"
-        android:background="#EAF8FD">
+
 
         <GridView
-            android:id="@+id/mywork_grid"
+            android:id="@+id/GvMyworkView"
             android:verticalSpacing="5dp"
             android:horizontalSpacing="10dp"
             android:padding="3dp"
@@ -23,6 +18,6 @@
             android:layout_height="match_parent">
 
         </GridView>
-    </ScrollView>
+
 
 </LinearLayout>

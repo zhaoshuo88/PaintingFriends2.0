@@ -95,7 +95,7 @@ public class FindDetailsActivity extends Activity {
 //                        handler.sendMessage(message);
 
                         SharedPreferences preferences = getSharedPreferences("user", Context.MODE_PRIVATE);
-                        int userId = preferences.getInt("id", 0);
+                        int userId = preferences.getInt("uid", 1);
                         String userName = preferences.getString("name", "name");
                         String userAccount = preferences.getString("account", "account");
                         String userHeadportrait = preferences.getString("headportrait","headportrait");

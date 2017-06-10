@@ -76,14 +76,14 @@ public class LoginActivity extends Activity {
                                 String json = responseData;
                                 JSONArray j=new JSONArray(json);
                                 JSONObject item=j.getJSONObject(0);
-                                int id=item.getInt("uid");
-                                String account = item.getString("uaccount");
-                                String name = item.getString("uname");
-                                String headportrait = item.getString("uimage");
+                                int id=item.getInt("uid");      //用户ID
+                                String account = item.getString("uaccount");    //用户账号
+                                String name = item.getString("uname");      //用户名
+                                String headportrait = item.getString("uimage");     //用户头像
                                 handler2.sendEmptyMessage(0x123);
                                 SharedPreferences preferences = getSharedPreferences("user", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = preferences.edit();
-                                editor.putInt("id", id);
+                                editor.putInt("uid", id);
                                 editor.putString("name", name);
                                 editor.putString("account", account);
                                 editor.putString("headportrait",headportrait);

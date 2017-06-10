@@ -7,7 +7,7 @@ import android.graphics.Bitmap;
  */
 
 public class Find {
-    private int id;
+    private int id;     //图片id
     private String headPortrait;   //头像
     private String name;    //昵称
     private String image;  //作品图片

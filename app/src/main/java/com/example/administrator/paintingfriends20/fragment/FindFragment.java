@@ -157,7 +157,7 @@ public class FindFragment extends Fragment {
                 List<String> path = data.getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT);
                 //处理自己的逻辑
                 SharedPreferences preferences = getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
-                int uid = preferences.getInt("id", 0);
+                int uid = preferences.getInt("uid", 0);
                 for (int i = 0; i < path.size(); i++) {
                     String imageFile = path.get(i);
                     File file = new File(imageFile);
@@ -250,7 +250,7 @@ public class FindFragment extends Fragment {
 
 //                            System.out.println(uimage + "((((((((((((((((((((((((((((((");
 //                            System.out.println(durl + "))))))))))))))))))))))");
-                            String uimageUrl = urls + uimage;
+                            String uimageUrl = urls + uimage;   //用户头像地址
                             String durlUrl = urls + durl;
                             findLists.add(new Find(did,uimageUrl,uname,durlUrl));
 //                            URL urldown = new URL(urls + durl);

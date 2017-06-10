@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.domain.Find;
 import com.example.administrator.paintingfriends20.ui.FindDetailsActivity;
+import com.example.administrator.paintingfriends20.ui.MyWorksActivity;
+import com.example.administrator.paintingfriends20.ui.OtherWorksActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -132,6 +134,18 @@ public class FindAdapter extends RecyclerView.Adapter<FindAdapter.ViewHolder>{
         });
 //        holder.mFindPictureImage.setImageBitmap(find.getImage());
         Picasso.with(context).load(find.getHeadPortrait()).into(holder.mFindHeadPortrait);
+        holder.mFindHeadPortrait.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+//                intent.putExtra("imageId",find.getId());
+//                intent.putExtra("image",find.getImage());
+//                intent.putExtra("head",find.getHeadPortrait());
+                intent.putExtra("name",find.getName());
+                intent.setClass(context, OtherWorksActivity.class);
+                context.startActivity(intent);
+            }
+        });
 //        holder.mFindHeadPortrait.setImageResource(find.getHeadPortrait());
         holder.mFindName.setText(find.getName());
     }

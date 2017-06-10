@@ -5,12 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 
 import com.example.administrator.paintingfriends20.R;
-import com.example.administrator.paintingfriends20.domain.MyRequestDomain;
+import com.example.administrator.paintingfriends20.domain.MyRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +19,9 @@ import java.util.List;
  */
 public class MyRequestAdapter extends BaseAdapter {
     private Context context;
-    private List<MyRequestDomain> lRequest = new ArrayList<>();
+    private List<MyRequest> lRequest = new ArrayList<>();
 
-    public MyRequestAdapter(Context context, List<MyRequestDomain> lRequest) {
+    public MyRequestAdapter(Context context, List<MyRequest> lRequest) {
         this.context = context;
         this.lRequest = lRequest;
     }

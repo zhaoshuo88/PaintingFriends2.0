@@ -174,16 +174,7 @@ public class RequestFragment extends Fragment {
             }
         }.start();
 
-//        for (int i = 0;i < 10; i++){
-//            int rid = i;
-//            String rdate = "2017-5-23";
-//            String redetail = "这个是详细需求需求";
-//            int ruid = 345678;
-//            String name = "画友第"+ (i+1) +"号用户";
-//            lRequest.add(new Request((long)rid,R.drawable.touxiang3,name,redetail,rdate));
-//            System.out.println(rid + rdate + redetail + ruid);
-//
-//        }
+
     }
 
     private Handler handler = new Handler(){
