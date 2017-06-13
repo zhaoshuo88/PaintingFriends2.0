@@ -89,7 +89,7 @@ public class FindDetailsActivity extends Activity {
                         super.run();
                         //1.获取mEtFinddetailsComment内容
                         String comment = mEtFinddetailsComment.getText().toString();
-                        System.out.println(comment + "~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
 //                        Message message = Message.obtain();
 //                        message.obj = comment;
 //                        handler.sendMessage(message);

@@ -111,7 +111,7 @@ public class MineFragment extends Fragment {
 
 
         mTvMineName.setText(name);
-
+        System.out.println(Utils.URL + "upload/" + headportrait);
         Picasso.with(getActivity()).load(Utils.URL + "upload/" + headportrait).into(mIvMineHeadportrait);
 //        HeadThread headThread = new HeadThread();
 //        headThread.start();

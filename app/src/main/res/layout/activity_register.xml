@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="330dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:orientation="vertical"-->
+            <!--android:background="@drawable/zhijiao"-->
+            <!--android:layout_marginTop="40dp">-->
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yuanjiao"
+                android:id="@+id/EtRegisterName"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:hint="昵称：" />
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yuanjiao"
+                android:id="@+id/EtRegisterAccount"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:hint="邮箱" />
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yuanjiao"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:id="@+id/EtRegisterPwd"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:hint="密码："
+                android:gravity="top"/>
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yuanjiao"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:id="@+id/EtRegisterConfirmpwd"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:hint="确认密码："
+                android:gravity="top"/>
+
+        <!--</LinearLayout>-->
+
+        <Button
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/yuanjiao"
+            android:text="注册"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:id="@+id/BtnRegisterRegister"/>
+
+
+
+</LinearLayout>

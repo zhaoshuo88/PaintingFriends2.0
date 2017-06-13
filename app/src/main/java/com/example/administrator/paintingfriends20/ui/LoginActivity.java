@@ -35,6 +35,7 @@ public class LoginActivity extends Activity {
     private EditText mEtLoginAccount;
     private EditText mEtLoginPwd;
     private Button mBtnLoginLogin;
+    private Button mBtnLoginRegister;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -100,12 +101,21 @@ public class LoginActivity extends Activity {
 
             }
         });
+        mBtnLoginRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+            }
+        });
+
+
     }
 
     private void findId() {
         mEtLoginAccount = (EditText) findViewById(R.id.EtLoginAccount);
         mEtLoginPwd = (EditText) findViewById(R.id.EtLoginPwd);
         mBtnLoginLogin = (Button) findViewById(R.id.BtnLoginLogin);
+        mBtnLoginRegister = (Button) findViewById(R.id.BtnLoginRegister);
     }
 
 
