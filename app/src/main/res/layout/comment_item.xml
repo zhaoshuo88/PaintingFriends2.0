@@ -29,7 +29,7 @@
                 android:id="@+id/TvCommentitemUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vvvvvvv7"
+                android:text="Gouchen"
                 android:textSize="18sp"/>
             <!-- 评论日期 -->
             <TextView
@@ -48,11 +48,11 @@
             android:layout_weight="1"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="8dp"
-            android:text="99"
+            android:text="234"
             android:gravity="center"
             android:textSize="13sp"
             android:textColor="#000000"
-            android:drawableRight="@drawable/like"/>
+            android:drawableLeft="@drawable/like"/>
 
     </LinearLayout>
     
