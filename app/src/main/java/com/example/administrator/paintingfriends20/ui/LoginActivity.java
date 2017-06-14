@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.administrator.paintingfriends20.MainActivity;
 import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.utils.Utils;
 
