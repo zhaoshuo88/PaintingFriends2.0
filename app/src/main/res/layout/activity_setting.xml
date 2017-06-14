@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="2dp"
             android:layout_marginTop="5dp"
             android:adjustViewBounds="true"
             android:src="@drawable/btn_back" />
@@ -37,9 +37,9 @@
     <!-- 账号设置 -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="55dp"
         android:background="@color/white"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_weight="0.06">
 
         <ImageView
@@ -59,7 +59,7 @@
             android:layout_marginStart="0dp"
             android:layout_toEndOf="@id/IvSettingAccount"
             android:text="清除图片缓存"
-            android:textSize="13dp"/>
+            android:textSize="18dp"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -73,9 +73,9 @@
     <!-- 我的收藏 -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="55dp"
         android:background="@color/white"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="2dp">
 
         <ImageView
             android:id="@+id/IvSettingAbout"
@@ -94,7 +94,7 @@
             android:layout_marginStart="0dp"
             android:layout_toEndOf="@id/IvSettingAbout"
             android:text="设置图片保存路径"
-            android:textSize="13dp"/>
+            android:textSize="18dp"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -108,9 +108,9 @@
     <!-- 用户反馈 -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="55dp"
         android:background="@color/white"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="30dp">
 
         <ImageView
             android:id="@+id/IvSettingFeedback"
@@ -129,7 +129,7 @@
             android:layout_marginStart="0dp"
             android:layout_toEndOf="@id/IvSettingFeedback"
             android:text="用户反馈"
-            android:textSize="13dp"/>
+            android:textSize="18dp"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -143,9 +143,9 @@
     <!-- 清除缓存 -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="55dp"
         android:background="@color/white"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="30dp">
 
         <ImageView
             android:id="@+id/IvSettingClearcache"
@@ -164,7 +164,7 @@
             android:layout_marginStart="0dp"
             android:layout_toEndOf="@id/IvSettingClearcache"
             android:text="版本更新"
-            android:textSize="13dp"/>
+            android:textSize="18dp"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -185,7 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="44dp"
             android:text="退出登录"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/red"
             android:layout_marginTop="15dp"
             android:textSize="22dp"
             android:layout_alignParentTop="true"

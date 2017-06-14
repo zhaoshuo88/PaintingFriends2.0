@@ -1,5 +1,9 @@
 [
     {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v23\\abc_control_background_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58c1e54706bba26b5e76292ed8dcb190a3dc6091\\output\\res\\drawable-v23\\abc_control_background_material.xml"
+    },
+    {
         "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v23\\abc_control_background_material.xml",
         "source": "C:\\Users\\15530\\.android\\build-cache\\40edc893f723a4b17d77f596e7b0769544d133e8\\output\\res\\drawable-v23\\abc_control_background_material.xml"
     }

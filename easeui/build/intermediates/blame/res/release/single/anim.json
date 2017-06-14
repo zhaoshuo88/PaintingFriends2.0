@@ -1,7 +1,95 @@
 [
     {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\voice_from_icon.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\voice_from_icon.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58c1e54706bba26b5e76292ed8dcb190a3dc6091\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
         "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_top_out.xml",
         "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\push_top_out.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_top_out.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\push_top_out.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\voice_to_icon.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\voice_to_icon.xml"
+    },
+    {
+        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\15530\\.android\\build-cache\\40edc893f723a4b17d77f596e7b0769544d133e8\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\slide_out_to_left.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\slide_out_to_left.xml"
+    },
+    {
+        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\slide_out_to_left.xml",
+        "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\slide_out_to_left.xml"
+    },
+    {
+        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\head_out.xml",
+        "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\head_out.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\slide_in_from_right.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\slide_in_from_right.xml"
+    },
+    {
+        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\15530\\.android\\build-cache\\40edc893f723a4b17d77f596e7b0769544d133e8\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58c1e54706bba26b5e76292ed8dcb190a3dc6091\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\voice_to_icon.xml",
+        "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\voice_to_icon.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\fade_in.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\fade_in.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58c1e54706bba26b5e76292ed8dcb190a3dc6091\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_bottom_out.xml",
+        "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\push_bottom_out.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58c1e54706bba26b5e76292ed8dcb190a3dc6091\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_top_in2.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\push_top_in2.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58c1e54706bba26b5e76292ed8dcb190a3dc6091\\output\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_bottom_in.xml",
+        "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\push_bottom_in.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_top_in.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\push_top_in.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\slide_out_to_right.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\slide_out_to_right.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58c1e54706bba26b5e76292ed8dcb190a3dc6091\\output\\res\\anim\\abc_slide_out_top.xml"
     },
     {
         "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_top_in2.xml",
@@ -16,36 +104,32 @@
         "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\slide_out_to_right.xml"
     },
     {
-        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "C:\\Users\\15530\\.android\\build-cache\\40edc893f723a4b17d77f596e7b0769544d133e8\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\slide_out_to_left.xml",
-        "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\slide_out_to_left.xml"
-    },
-    {
-        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\head_out.xml",
-        "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\head_out.xml"
+        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\fade_out.xml",
+        "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\fade_out.xml"
     },
     {
         "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\head_in.xml",
         "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\head_in.xml"
     },
     {
-        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\fade_out.xml",
-        "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\fade_out.xml"
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_top_out2.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\push_top_out2.xml"
     },
     {
         "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\hold.xml",
         "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\hold.xml"
     },
     {
-        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
-        "source": "C:\\Users\\15530\\.android\\build-cache\\40edc893f723a4b17d77f596e7b0769544d133e8\\output\\res\\anim\\abc_fade_out.xml"
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\head_out.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\head_out.xml"
     },
     {
         "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\fade_in.xml",
         "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\fade_in.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58c1e54706bba26b5e76292ed8dcb190a3dc6091\\output\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
         "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_grow_fade_in_from_bottom.xml",
@@ -56,12 +140,24 @@
         "source": "C:\\Users\\15530\\.android\\build-cache\\40edc893f723a4b17d77f596e7b0769544d133e8\\output\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
-        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\voice_to_icon.xml",
-        "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\voice_to_icon.xml"
-    },
-    {
         "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
         "source": "C:\\Users\\15530\\.android\\build-cache\\40edc893f723a4b17d77f596e7b0769544d133e8\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_bottom_out.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\push_bottom_out.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\hold.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\hold.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58c1e54706bba26b5e76292ed8dcb190a3dc6091\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\fade_out.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\fade_out.xml"
     },
     {
         "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_exit.xml",
@@ -80,6 +176,10 @@
         "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\slide_in_from_right.xml"
     },
     {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58c1e54706bba26b5e76292ed8dcb190a3dc6091\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
         "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\slide_in_from_left.xml",
         "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\slide_in_from_left.xml"
     },
@@ -88,8 +188,8 @@
         "source": "C:\\Users\\15530\\.android\\build-cache\\40edc893f723a4b17d77f596e7b0769544d133e8\\output\\res\\anim\\abc_popup_enter.xml"
     },
     {
-        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_bottom_out.xml",
-        "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\push_bottom_out.xml"
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\58c1e54706bba26b5e76292ed8dcb190a3dc6091\\output\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
         "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
@@ -100,11 +200,19 @@
         "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\push_top_out2.xml"
     },
     {
-        "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_bottom_in.xml",
-        "source": "E:\\Project2017\\PaintingFriends2.9\\easeui\\src\\main\\res\\anim\\push_bottom_in.xml"
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\slide_in_from_left.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\slide_in_from_left.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\push_bottom_in.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\push_bottom_in.xml"
     },
     {
         "merged": "E:\\Project2017\\PaintingFriends2.9\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
         "source": "C:\\Users\\15530\\.android\\build-cache\\40edc893f723a4b17d77f596e7b0769544d133e8\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "F:\\project\\PaintingFriends2.0new\\easeui\\build\\intermediates\\res\\merged\\release\\anim\\head_in.xml",
+        "source": "F:\\project\\PaintingFriends2.0new\\easeui\\src\\main\\res\\anim\\head_in.xml"
     }
 ]

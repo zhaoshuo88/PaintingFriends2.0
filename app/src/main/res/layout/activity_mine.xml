@@ -18,7 +18,7 @@
         android:background="@color/ll">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             >
 
@@ -26,7 +26,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="13dp"
                 android:background="@color/white"
                 android:id="@+id/Personal">
 
@@ -66,9 +66,9 @@
             <!-- 我的收藏 -->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="44dp"
                 android:background="@color/white"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="13dp">
 
                 <ImageView
                     android:id="@+id/IvMineCollection"
@@ -101,9 +101,9 @@
             <RelativeLayout
                 android:id="@+id/RlayMineWorks"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="44dp"
                 android:background="@color/white"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="1dp">
 
                 <ImageView
                     android:id="@+id/IvMineWorks"
@@ -139,9 +139,9 @@
             <RelativeLayout
                 android:id="@+id/RlayMineRequest"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="44dp"
                 android:background="@color/white"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="13dp">
 
                 <ImageView
                     android:id="@+id/IvMineRequest"
@@ -176,9 +176,9 @@
             <!-- 系统设置 -->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="44dp"
                 android:background="@color/white"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="1dp">
 
                 <ImageView
                     android:id="@+id/IvMineSetting"
@@ -210,9 +210,9 @@
             <!-- 意见反馈 -->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="44dp"
                 android:background="@color/white"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="13dp">
 
                 <ImageView
                     android:id="@+id/IvMineSuggestion"
@@ -244,9 +244,9 @@
             <!-- 分享软件 -->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="44dp"
                 android:background="@color/white"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="1dp">
 
                 <ImageView
                     android:id="@+id/IvMineShare"
@@ -278,9 +278,9 @@
             <!-- 关于 -->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="44dp"
                 android:background="@color/white"
-                android:layout_marginTop="48dp">
+                android:layout_marginTop="13dp">
 
                 <ImageView
                     android:id="@+id/IvMineAbout"
