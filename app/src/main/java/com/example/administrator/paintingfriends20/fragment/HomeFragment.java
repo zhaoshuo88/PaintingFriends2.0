@@ -2,7 +2,9 @@ package com.example.administrator.paintingfriends20.fragment;
 
 import android.annotation.TargetApi;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -36,6 +38,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,6 +64,7 @@ public class HomeFragment extends Fragment {
     private List<HomeLike> lLike = new ArrayList<>();
     private HomeLikeAdapter likeAdapter;
     private GridView mLikeList;
+    private int uid;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -71,9 +75,14 @@ public class HomeFragment extends Fragment {
 
         //点赞榜
         mLikeList = (GridView)view.findViewById(R.id.grid);
-        pic = (ImageView)view.findViewById(R.id.pic );
+        pic = (ImageView)view.findViewById(R.id.IvHomelikeImage );
 /*        number = (ImageView) view.findViewById(R.id.number );*/
-        name = (TextView) view.findViewById(R.id.name );
+        name = (TextView) view.findViewById(R.id.TvHomelikeName );
+
+        SharedPreferences preferences = getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
+        uid = preferences.getInt("uid", 1);     //用户ID
+//        name = preferences.getString("name", "name");   //用户名
+//        headportrait = preferences.getString("headportrait","headportrait"); //用户头像
         getLikeDate();//获取点赞榜数据
         likeAdapter = new HomeLikeAdapter(getActivity(),lLike);
         mLikeList.setAdapter(likeAdapter);
@@ -129,14 +138,18 @@ public class HomeFragment extends Fragment {
         image.setBackgroundResource(resId);
         return image;
     }
-    private void getData(){
-        new  Thread(){
+
+
+    private void getLikeDate() {
+
+        new Thread(){
             @Override
             public void run() {
+                super.run();
                 try {
-                    urlRequestfragmentPath = (new Utils().URL)+"request/?obj=5";
+                    String urlMyWorksPath = Utils.URL + "draw/?obj=9";
 
-                    url = new URL(urlRequestfragmentPath);
+                    URL url = new URL(urlMyWorksPath);
 
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
@@ -151,70 +164,29 @@ public class HomeFragment extends Fragment {
                         while ((retData = in.readLine()) != null){
                             responseData += retData;
                         }
+                        System.out.println(responseData);
+                        JSONArray j = null;
+                        j = new JSONArray((String)responseData);
+                        for (int i = 0 ; i < j.length();i++){
+                            JSONObject item = j.getJSONObject(i);
 
-                        //通知主线程更新UI
-                        Message message = new Message();
-                        message.what = 1;
-                        message.obj = responseData;
-                        handler.sendMessage(message);
+                            int did = item.getInt("did");
+                            String durl = item.getString("durl");   //作品名字
+                            String uname = item.getString("uname");
 
+                            lLike .add(new HomeLike(did,Utils.URL + "upload/" + durl,uname));
+                        }
 
+                        in.close();
 
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
             }
         }.start();
-    }
 
-    private Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            if (msg.what == 1){
-                JSONArray j = null;
-                try {
-                    j = new JSONArray((String)msg.obj);
-                    for (int i = 0 ; i < j.length();i++){
-                        JSONObject item = j.getJSONObject(i);
-                        int rid=item.getInt("rid");
-                        String rdate = item.getString("rdate");
-//                        String rtitle = item.getString("rtitle");//URLEncoder.encode(item.getString("rdetail"),"utf-8");//item.getString("rdetail"); //URLEncoder.encode(userName.getText().toString(),"UTF-8")
-                        String redetail = URLDecoder.decode(item.getString("rdetail"),"utf-8");
-
-//                            byte[] b_rdetail = rdetail.getBytes("utf-8");
-//                            String r_rdetail = new String(b_rdetail,"UTF-8");
-                        String rname = item.getString("rname");
-                        int ruid = item.getInt("ruid");
-                        String account = item.getString("account");
-
-                        System.out.println(rid + rname+rdate + redetail + ruid+account );
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-
-////
-            }
-        }
-    };
-
-    private void getLikeDate() {
-        lLike .add(new HomeLike(0,R.drawable.yuepai,"              张三  "));
-        lLike .add(new HomeLike(1,R.drawable.ss,"        啦啦啦啦啦了李四"));
-        lLike .add(new HomeLike(0,R.drawable.gg,"张三  "));
-        lLike .add(new HomeLike(1,R.drawable.hh,"李四"));
-        lLike .add(new HomeLike(0,R.drawable.lala,"张三  "));
-        lLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
-        lLike .add(new HomeLike(0,R.drawable.ss,"张三  "));
-        lLike .add(new HomeLike(1,R.drawable.gg,"李四"));
-        lLike .add(new HomeLike(0,R.drawable.hh,"张三  "));
-        lLike .add(new HomeLike(1,R.drawable.lala,"李四"));
-        lLike .add(new HomeLike(0,R.drawable.ss,"张三  "));
-        lLike .add(new HomeLike(1,R.drawable.yuepai,"李四"));
     }
 }
 

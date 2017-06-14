@@ -1,17 +1,13 @@
 package com.example.administrator.paintingfriends20.ui;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.paintingfriends20.R;
-import com.example.administrator.paintingfriends20.adapter.HomeLikeAdapter;
 import com.example.administrator.paintingfriends20.adapter.MyWorkAdapter;
-import com.example.administrator.paintingfriends20.domain.HomeLike;
-import com.example.administrator.paintingfriends20.domain.MyRequest;
 import com.example.administrator.paintingfriends20.domain.MyWork;
 import com.example.administrator.paintingfriends20.utils.Utils;
 
@@ -22,7 +18,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,8 +59,6 @@ public class MyWorksActivity extends Activity {
             public void run() {
                 super.run();
                 try {
-//                    String urlPath2 = (Utils.URL) + "user/?obj=1&upwd=" + mLoginPwd
-//                    + "&uaccount=" + URLEncoder.encode(mLoginAccount, "UTF-8");
                     String urlMyWorksPath = Utils.URL + "draw/?obj=14&uname=" + URLEncoder.encode(userNmae,"UTF-8");
 
                     URL url = new URL(urlMyWorksPath);

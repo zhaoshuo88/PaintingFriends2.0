@@ -1,6 +1,7 @@
 package com.example.administrator.paintingfriends20.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.domain.Request;
+import com.example.administrator.paintingfriends20.ui.OtherRequestsActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -53,14 +55,38 @@ public class RequestAdapter extends BaseAdapter {
         }else {
             v = view;
         }
+        final Request request = lRequest.get(i);
+        System.out.println("############################");
+
+//        v.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+//                Long rid = request.getId();
+//                Intent intent = new Intent();
+//                intent.setClass(context, OtherRequestsActivity.class);
+//                intent.putExtra("rid",rid);
+//                context.startActivity(intent);
+//            }
+//        });
         ImageButton headPhoto = (ImageButton) v.findViewById(R.id.IbReqitemHeadphoto);
-        Picasso.with(context).load(lRequest.get(i).getHeadPhoto()).into(headPhoto);
+        headPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Long rid = request.getId();
+                Intent intent = new Intent();
+                intent.setClass(context, OtherRequestsActivity.class);
+                intent.putExtra("rid",rid);
+                context.startActivity(intent);
+            }
+        });
+        Picasso.with(context).load(request.getHeadPhoto()).into(headPhoto);
         TextView TvName = (TextView) v.findViewById(R.id.TvReqitemName);
-        TvName.setText(lRequest.get(i).getName());
+        TvName.setText(request.getName());
         TextView TvRequest = (TextView) v.findViewById(R.id.TvReqitemRequest);
-        TvRequest.setText(lRequest.get(i).getRequest());
+        TvRequest.setText(request.getRequest());
         TextView TvTime = (TextView) v.findViewById(R.id.TvReqitemTime);
-        TvTime.setText(lRequest.get(i).getTime());
+        TvTime.setText(request.getTime());
 
         return v;
     }

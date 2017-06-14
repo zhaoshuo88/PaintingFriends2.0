@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.paintingfriends20.R;
-import com.example.administrator.paintingfriends20.domain.HomeLike;
 import com.example.administrator.paintingfriends20.domain.MyWork;
 import com.squareup.picasso.Picasso;
 

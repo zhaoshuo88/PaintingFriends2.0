@@ -61,6 +61,7 @@
         <activity android:name=".ui.MyRequestsActivity"/>
         <activity android:name=".ui.Mine"/>
         <activity android:name=".ui.OtherWorksActivity"/>
+        <activity android:name=".ui.OtherRequestsActivity"/>
         <activity android:name=".ui.ChatActivity"/>
 
         <!-- 设置环信应用的AppKey -->

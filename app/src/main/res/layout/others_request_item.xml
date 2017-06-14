@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:paddingTop="10dp"
-        android:id="@+id/TvMyrequestitemContent"
+        android:id="@+id/TvOtherrequestitemContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:textSize="15sp"/>
+        android:textSize="20sp"/>
+
     <TextView
-        android:id="@+id/TvMyrequestitemTime"
+        android:id="@+id/TvOtherrequestitemTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/TvMyrequestitemContent"
-        android:textSize="11sp"
+        android:layout_below="@id/TvOtherrequestitemContent"
         android:gravity="end"
-        android:paddingEnd="5dp"/>
+        android:paddingEnd="5dp"
+        android:textColor="@color/btn_gray_pressed"
+        android:textSize="14sp"
+        app:paddingEnd="5dp" />
 </RelativeLayout>

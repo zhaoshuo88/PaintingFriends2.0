@@ -12,9 +12,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.administrator.paintingfriends20.R;
@@ -53,6 +55,7 @@ public class RequestFragment extends Fragment {
     private ListView mRequestList;
     private ImageView mIvRequestAdd;
     private String urlRequestfragmentPath;
+    private RelativeLayout mRlayRequestitemView;
 
     @Nullable
     @Override
@@ -70,6 +73,13 @@ public class RequestFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         mIvRequestAdd.setOnClickListener(new OnClick());
+        mRequestList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent();
+//                intent.setClass(getActivity(), );
+            }
+        });
     }
 
     class  MenuItemClick implements PopupMenu.OnMenuItemClickListener{
@@ -128,6 +138,7 @@ public class RequestFragment extends Fragment {
     private void findView() {
         mRequestList = (ListView)view.findViewById(R.id.LvReqAdpview);
         mIvRequestAdd = (ImageView) view.findViewById(R.id.IvRequestAdd);
+        mRlayRequestitemView = (RelativeLayout)view.findViewById(R.id.RlayRequestitemView);
         mHeadphoto = (ImageButton)view.findViewById(R.id.IbReqitemHeadphoto);
         mName = (TextView)view.findViewById(R.id.TvReqitemName);
         mRequest = (TextView)view.findViewById(R.id.TvReqitemRequest);

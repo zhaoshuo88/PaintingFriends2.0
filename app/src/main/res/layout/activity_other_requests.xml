@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/TvOtherBarname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingStart="15dp"
+        android:paddingTop="10dp"
+        android:text="我"
+        android:textSize="20sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ll">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <!-- 头像和用户名-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:background="@color/white"
+                android:id="@+id/Personal">
+
+                <ImageView
+                    android:id="@+id/IvOhterrequestHeadportrait"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:adjustViewBounds="true"
+                    android:clickable="false"
+                    android:src="@drawable/touxiang3" />
+
+                <TextView
+                    android:id="@+id/TvOtherrequestName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/IvOhterrequestHeadportrait"
+                    android:textSize="15sp"
+                    android:clickable="false"
+                    android:text="edu2act.org" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:background="@color/white"
+                android:layout_marginTop="22dp">
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="21dp"
+                    android:text="设置备注"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/RlayMineWorks"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:background="@color/white"
+                android:layout_marginTop="22dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="21dp"
+                    android:text="地区"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="88dp"
+                    android:text="河北 石家庄"
+                    android:textSize="12dp"
+                    android:textColor="@color/gray"/>
+
+            </RelativeLayout>
+
+
+
+            <!-- 系统设置 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@color/white"
+                android:layout_marginTop="1dp">
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="21dp"
+                    android:text="更多"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"/>
+
+            </RelativeLayout>
+
+
+
+            <TextView
+                android:id="@+id/TvOtherrequestSendmessage"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_centerVertical="true"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:text="发消息"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="19sp"
+                android:clickable="true"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="需求展示"
+                android:paddingStart="10dp"
+                android:textSize="19sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"/>
+
+
+            <ListView
+                android:id="@+id/LvOthersrequestRequest"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+
+                android:dividerHeight="5dp"></ListView>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

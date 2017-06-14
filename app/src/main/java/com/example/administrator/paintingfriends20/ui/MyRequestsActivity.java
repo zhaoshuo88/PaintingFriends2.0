@@ -60,8 +60,6 @@ public class MyRequestsActivity extends Activity {
     }
 
     private void getrequestListsDate() {
-
-
         new Thread(){
             @Override
             public void run() {

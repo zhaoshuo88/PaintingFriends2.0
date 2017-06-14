@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.domain.HomeLike;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,12 +46,13 @@ public class HomeLikeAdapter extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.layout_homelike_item,null);
         }
 
-        ImageView pic = (ImageView) view.findViewById(R.id.pic );
-        pic .setImageResource(lLike.get(i).getPic());
+        ImageView pic = (ImageView) view.findViewById(R.id.IvHomelikeImage );
+        Picasso.with(context).load(lLike.get(i).getPic()).into(pic);
+//        pic .setImageResource(lLike.get(i).getPic());
 /*        ImageView number = (ImageView) view.findViewById(R.id.number );
         number .setImageResource(lLike.get(i).getNumber());*/
-        TextView name = (TextView) view.findViewById(R.id.name );
-        name .setText(lLike.get(i).getName());
+        TextView name = (TextView) view.findViewById(R.id.TvHomelikeName );
+        name .setText(lLike.get(i).getUname());
 
         return view;
     }

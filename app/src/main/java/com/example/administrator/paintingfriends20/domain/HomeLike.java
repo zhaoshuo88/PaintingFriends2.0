@@ -5,14 +5,13 @@ package com.example.administrator.paintingfriends20.domain;
  */
 public class HomeLike {
     private int id;
-    private int pic;//展示作品
-    private String name;//上榜人姓名
+    private String pic;//作品名字
+    private String uname;//点赞数
 
-    public HomeLike(int id, int pic, String name) {
+    public HomeLike(int id, String pic, String uname) {
         this.id = id;
         this.pic = pic;
-        this.name = name;
-
+        this.uname = uname;
     }
 
     public int getId() {
@@ -23,19 +22,19 @@ public class HomeLike {
         this.id = id;
     }
 
-    public int getPic() {
+    public String getPic() {
         return pic;
     }
 
-    public void setPic(int pic) {
+    public void setPic(String pic) {
         this.pic = pic;
     }
 
-    public String getName() {
-        return name;
+    public String getUname() {
+        return uname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUname(String uname) {
+        this.uname = uname;
     }
 }
