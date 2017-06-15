@@ -52,8 +52,9 @@
             android:textSize="19dp"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/IvPersonaldetailsImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_margin="10dp"
@@ -79,6 +80,7 @@
             android:textSize="19dp"/>
 
         <TextView
+            android:id="@+id/TvPersonaldetailsName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

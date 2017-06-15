@@ -1,6 +1,8 @@
 package com.example.administrator.paintingfriends20.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,6 +19,7 @@ import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.adapter.OtherRequestAdapter;
 import com.example.administrator.paintingfriends20.domain.OtherRequest;
 import com.example.administrator.paintingfriends20.utils.Utils;
+import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.easeui.EaseConstant;
@@ -49,6 +52,8 @@ public class OtherRequestsActivity extends AppCompatActivity {
     private TextView mTvOtherrequestSendmessage;
     private String uname;  //网络获取的需求页面人名字
     private String uimage;  //网络获取的需求页面人头像名
+    private String userName;
+    private String userPwd;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,37 +62,58 @@ public class OtherRequestsActivity extends AppCompatActivity {
 
         rid = getIntent().getLongExtra("rid", 71);
 
+        SharedPreferences preferences = getSharedPreferences("user", Context.MODE_PRIVATE);
+        userName = preferences.getString("name", "name");   //用户名
+        userPwd = preferences.getString("upwd", "upwd");   //用户名
         findId();
         getOtherMessage();
 
         OtherRequestAdapter adapter = new OtherRequestAdapter(getApplicationContext(), requestLists);
         mLvOthersrequestRequest.setAdapter(adapter);
 
-        System.out.println("uname:~~~~~~~~~" + uname);
+
         mTvOtherrequestSendmessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String chatId = uname.trim();
-                System.out.println("uname@@@@@@@@" + uname);
-                if (!TextUtils.isEmpty(chatId)) {
-                    //获取当前登录用户的username
-                    String currUsername = EMClient.getInstance().getCurrentUser();
-                    if (chatId.equals(currUsername)){
-                        Toast.makeText(OtherRequestsActivity.this,"不能和自己聊天",
-                                Toast.LENGTH_LONG).show();
-                        return;
-                    }
+                EMClient.getInstance().login(userName.trim(), userPwd.trim(), new EMCallBack() {
+                    @Override
+                    public void onSuccess() {
+                        String chatId = uname.trim();
 
-                    //跳转到聊天界面，开始聊天
-                    Intent intent = new Intent(OtherRequestsActivity.this,ChatActivity.class);
+                        if (!TextUtils.isEmpty(chatId)) {
+                            //获取当前登录用户的username
+                            String currUsername = EMClient.getInstance().getCurrentUser();
+                            if (chatId.equals(currUsername)){
+                                Toast.makeText(OtherRequestsActivity.this,"不能和自己聊天",
+                                        Toast.LENGTH_LONG).show();
+                                return;
+                            }
 
-                    //EaseUI封装的聊天界面需要这两个参数
-                    intent.putExtra(EaseConstant.EXTRA_USER_ID,chatId);
+                            //跳转到聊天界面，开始聊天
+                            Intent intent = new Intent(OtherRequestsActivity.this,ChatActivity.class);
+
+                            //EaseUI封装的聊天界面需要这两个参数
+                            intent.putExtra(EaseConstant.EXTRA_USER_ID,chatId);
 //                    intent.putExtra(EaseConstant.EXTRA_CHAT_TYPE, EMMessage.ChatType.Chat);
 
-                    intent.putExtra(EaseConstant.EXTRA_CHAT_TYPE,EaseConstant.CHATTYPE_SINGLE);
-                    startActivity(intent);
-                }
+                            intent.putExtra(EaseConstant.EXTRA_CHAT_TYPE,EaseConstant.CHATTYPE_SINGLE);
+                            startActivity(intent);
+                        }
+                    }
+
+                    @Override
+                    public void onError(int i, String s) {
+
+                    }
+
+                    @Override
+                    public void onProgress(int i, String s) {
+
+                    }
+                });
+
+
+
             }
         });
 

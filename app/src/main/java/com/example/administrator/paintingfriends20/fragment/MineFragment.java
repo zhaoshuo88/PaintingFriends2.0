@@ -143,6 +143,8 @@ public class MineFragment extends Fragment {
                 case R.id.Personal:
                     Intent personalIntent = new Intent();
                     personalIntent.putExtra("uid",uid);
+                    personalIntent.putExtra("name",name);
+                    personalIntent.putExtra("headportrait",headportrait);
                     personalIntent.setClass(getActivity(), Mine.class);
                     startActivity(personalIntent);
                     break;
