@@ -118,14 +118,14 @@ public class HomeFragment extends Fragment {
         /**
          * 设置监听
          */
-        mLikeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent();
-                intent.setClass(view.getContext(), FindDetailsActivity.class);
-                startActivity(intent);
-            }
-        });
+//        mLikeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent intent = new Intent();
+//                intent.setClass(view.getContext(), FindDetailsActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         return view;
         //首页轮播图代码
 
@@ -147,7 +147,7 @@ public class HomeFragment extends Fragment {
             public void run() {
                 super.run();
                 try {
-                    String urlMyWorksPath = Utils.URL + "draw/?obj=9";
+                    String urlMyWorksPath = Utils.URL + "draw/?obj=10";
 
                     URL url = new URL(urlMyWorksPath);
 

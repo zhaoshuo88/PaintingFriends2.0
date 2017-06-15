@@ -6,13 +6,13 @@ package com.example.administrator.paintingfriends20.domain;
 
 public class FindDetailsComment {
 
-    private int headPortrait;   //头像
+    private String headPortrait;   //头像
     private String name;    //昵称
     private String date;    //评论日期
     private long likeNum;   //点赞数
     private String content; //评论内容
 
-    public FindDetailsComment(int headPortrait, String name, String date, long likeNum, String content) {
+    public FindDetailsComment(String headPortrait, String name, String date, long likeNum, String content) {
         this.headPortrait = headPortrait;
         this.name = name;
         this.date = date;
@@ -20,11 +20,11 @@ public class FindDetailsComment {
         this.content = content;
     }
 
-    public int getHeadPortrait() {
+    public String getHeadPortrait() {
         return headPortrait;
     }
 
-    public void setHeadPortrait(int headPortrait) {
+    public void setHeadPortrait(String headPortrait) {
         this.headPortrait = headPortrait;
     }
 

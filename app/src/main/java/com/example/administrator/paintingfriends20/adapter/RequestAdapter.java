@@ -56,19 +56,6 @@ public class RequestAdapter extends BaseAdapter {
             v = view;
         }
         final Request request = lRequest.get(i);
-        System.out.println("############################");
-
-//        v.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-//                Long rid = request.getId();
-//                Intent intent = new Intent();
-//                intent.setClass(context, OtherRequestsActivity.class);
-//                intent.putExtra("rid",rid);
-//                context.startActivity(intent);
-//            }
-//        });
         ImageButton headPhoto = (ImageButton) v.findViewById(R.id.IbReqitemHeadphoto);
         headPhoto.setOnClickListener(new View.OnClickListener() {
             @Override

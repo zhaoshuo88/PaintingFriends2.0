@@ -1,5 +1,6 @@
 package com.example.administrator.paintingfriends20.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +13,8 @@ import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.domain.Find;
 import com.example.administrator.paintingfriends20.domain.FindDetailsComment;
 import com.example.administrator.paintingfriends20.ui.FindDetailsActivity;
+import com.example.administrator.paintingfriends20.utils.Utils;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -23,6 +26,7 @@ import static com.example.administrator.paintingfriends20.R.drawable.find;
 
 public class FindDetailCommentsListsAdapter extends RecyclerView.Adapter<FindDetailCommentsListsAdapter.ViewHolder>{
 
+    private Context context;
     private List<FindDetailsComment> mCommentLists;
 
 
@@ -58,7 +62,8 @@ public class FindDetailCommentsListsAdapter extends RecyclerView.Adapter<FindDet
      * 用于把要展示的数据源传进来，并赋值给一个全区变量mCommentists
      * @param mCommentLists
      */
-    public FindDetailCommentsListsAdapter(List<FindDetailsComment> mCommentLists) {
+    public FindDetailCommentsListsAdapter(Context context, List<FindDetailsComment> mCommentLists) {
+        this.context = context;
         this.mCommentLists = mCommentLists;
     }
 
@@ -89,7 +94,9 @@ public class FindDetailCommentsListsAdapter extends RecyclerView.Adapter<FindDet
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         FindDetailsComment findDetailsComment = mCommentLists.get(position);
-        holder.mIvCommentitemUserpicture.setImageResource(findDetailsComment.getHeadPortrait());
+        System.out.println(findDetailsComment.getHeadPortrait());
+        Picasso.with(context).load(findDetailsComment.getHeadPortrait()).into(holder.mIvCommentitemUserpicture);
+//        holder.mIvCommentitemUserpicture.setImageResource(findDetailsComment.getHeadPortrait());
         holder.mTvCommentitemUsername.setText(findDetailsComment.getName());
         holder.mTvCommentitemDate.setText(findDetailsComment.getDate());
         holder.mTvCommentitemLikenum.setText(String.valueOf(findDetailsComment.getLikeNum()));

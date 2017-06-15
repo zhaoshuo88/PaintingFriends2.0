@@ -23,6 +23,8 @@
             android:id="@+id/TvHomelikeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingEnd="20dp"
             android:text="第一名"
             android:background="#ffffff" />
 
