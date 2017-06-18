@@ -59,6 +59,7 @@
                 android:paddingBottom="5dp"
                 android:hint="密码："
                 android:paddingLeft="6dp"
+                android:inputType="textPassword"
                 android:gravity="top"/>
             <EditText
                 android:layout_width="match_parent"
@@ -72,6 +73,7 @@
                 android:paddingBottom="5dp"
                 android:hint="确认密码："
                 android:paddingLeft="6dp"
+                android:inputType="textPassword"
                 android:gravity="top"/>
 
         <!--</LinearLayout>-->

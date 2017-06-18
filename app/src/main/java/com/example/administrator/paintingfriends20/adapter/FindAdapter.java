@@ -118,7 +118,7 @@ public class FindAdapter extends RecyclerView.Adapter<FindAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Find find = mFindLists.get(position);
-        Picasso.with(context).load(find.getImage()).into(holder.mFindPictureImage);
+        Picasso.with(context).load(find.getImage()).placeholder(R.drawable.placheholder).into(holder.mFindPictureImage);
         holder.mFindPictureImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -20,6 +20,7 @@ import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.adapter.FindDetailCommentsListsAdapter;
 import com.example.administrator.paintingfriends20.domain.FindDetailsComment;
 import com.example.administrator.paintingfriends20.utils.Utils;
+import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -48,11 +49,12 @@ public class FindDetailsActivity extends AppCompatActivity {
     private ImageView mIvFinddetailsImage;
     private int imageId;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_details);
-        
+
         findId();
 
 
@@ -63,26 +65,26 @@ public class FindDetailsActivity extends AppCompatActivity {
         String name = extras.getString("name");     //发布人名字
         System.out.println(imageId + ", " + image + ", " + head + ", " + name);
 
-
-        //加载作品
-        Picasso.with(getApplicationContext()).load(image).into(mIvFinddetailsImage);
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRvFinddetailsCommentlist.setLayoutManager(linearLayoutManager);
+
+        //加载作品
+        Picasso.with(getApplicationContext()).load(image)
+                .memoryPolicy(MemoryPolicy.NO_CACHE,MemoryPolicy.NO_STORE)  //静止内存缓存
+                .into(mIvFinddetailsImage);
 
         //初始化评论数据
         initComment();
 
-        FindDetailCommentsListsAdapter findDetailCommentsListsAdapter = new FindDetailCommentsListsAdapter(getApplicationContext(),mFindDetailsCommentLists);
+        FindDetailCommentsListsAdapter findDetailCommentsListsAdapter = new FindDetailCommentsListsAdapter(getApplicationContext(), mFindDetailsCommentLists);
         mRvFinddetailsCommentlist.setAdapter(findDetailCommentsListsAdapter);
-
 
 
         //给mBtnFinddetailsComment设置点击事件,获取发布的评论内容，并发送到服务器端
         mBtnFinddetailsComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Thread(){
+                new Thread() {
                     @Override
                     public void run() {
                         super.run();
@@ -94,24 +96,24 @@ public class FindDetailsActivity extends AppCompatActivity {
                         int userId = preferences.getInt("uid", 1);
                         String userName = preferences.getString("name", "name");
                         String userAccount = preferences.getString("account", "account");
-                        String userHeadportrait = preferences.getString("headportrait","headportrait");
+                        String userHeadportrait = preferences.getString("headportrait", "headportrait");
 
 
                         try {
-                            String urlCommentPath = (new Utils().URL)+"comment/?obj=12&cuid=" + URLEncoder.encode(String.valueOf(userId),"UTF-8")//&ruid="+ruId.getText().toString()
-                                    +"&comment="+ URLEncoder.encode(comment,"UTF-8")
-                                    +"&cdid="+URLEncoder.encode(String.valueOf(imageId),"UTF-8");
+                            String urlCommentPath = (new Utils().URL) + "comment/?obj=12&cuid=" + URLEncoder.encode(String.valueOf(userId), "UTF-8")//&ruid="+ruId.getText().toString()
+                                    + "&comment=" + URLEncoder.encode(comment, "UTF-8")
+                                    + "&cdid=" + URLEncoder.encode(String.valueOf(imageId), "UTF-8");
                             URL url = new URL(urlCommentPath);
 
                             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-                            if (conn.getResponseCode() == 200){
+                            if (conn.getResponseCode() == 200) {
                                 //获得服务器响应数据
-                                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+                                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
                                 //数据
                                 String retData = null;
                                 String responseData = "";
-                                while ((retData = in.readLine()) != null){
+                                while ((retData = in.readLine()) != null) {
                                     responseData += retData;
                                 }
                                 in.close();
@@ -132,57 +134,57 @@ public class FindDetailsActivity extends AppCompatActivity {
 
     private void initComment() {
 
-//        new  Thread(){
-//            @Override
-//            public void run() {
-//                try {
-//                    String urlCommentPath = Utils.URL + "comment/?obj=13&cdid=" + imageId;
-//                    System.out.println("urlCommentPath:     " +urlCommentPath);
-//                    //获取评论列表
-//                    URL url = new URL(urlCommentPath);
-//
-//                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//
-//                    if (conn.getResponseCode() == 200){
-//
-//                        //获得服务器响应数据
-//                        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
-//
-//                        //数据
-//                        String retData = null;
-//                        String responseData = "";
-//                        while ((retData = in.readLine()) != null){
-//                            responseData += retData;
-//                        }
-//
-//                        System.out.println(responseData);
-//
-//                        JSONArray j = new JSONArray(responseData);
-//                        for (int i = 0 ; i < j.length();i++){
-//                            JSONObject item = j.getJSONObject(i);
-//                            String uimage = item.getString("uimage");   //评论人头像
-//                            String uname = item.getString("uname");     //评论人名字
-//                            String comment = item.getString("comment"); //评论内容
-//
-//                            mFindDetailsCommentLists.add(new FindDetailsComment(Utils.URL + "upload/" + uimage,uname,"2015年9月10日", 0,comment));
-//
-//                        }
+        new  Thread(){
+            @Override
+            public void run() {
+                try {
+                    String urlCommentPath = Utils.URL + "comment/?obj=13&cdid=" + imageId;
+                    System.out.println("urlCommentPath:     " +urlCommentPath);
+                    //获取评论列表
+                    URL url = new URL(urlCommentPath);
+
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                    if (conn.getResponseCode() == 200){
+
+                        //获得服务器响应数据
+                        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+
+                        //数据
+                        String retData = null;
+                        String responseData = "";
+                        while ((retData = in.readLine()) != null){
+                            responseData += retData;
+                        }
+
+                        System.out.println(responseData);
+
+                        JSONArray j = new JSONArray(responseData);
+                        for (int i = 0 ; i < j.length();i++){
+                            JSONObject item = j.getJSONObject(i);
+                            String uimage = item.getString("uimage");   //评论人头像
+                            String uname = item.getString("uname");     //评论人名字
+                            String comment = item.getString("comment"); //评论内容
+
+                            mFindDetailsCommentLists.add(new FindDetailsComment(Utils.URL + "upload/" + uimage,uname,"2015年9月10日", 0,comment));
+
+                        }
 //                        Message msg = Message.obtain();
 //                        msg.obj = mFindDetailsCommentLists;
 //                        handler.sendMessage(msg);
-//                        in.close();
-//                    }
-//
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }.start();
-        mFindDetailsCommentLists.add(new FindDetailsComment(Utils.URL + "upload/" + "18641120139138479.jpg","name","2015年9月10日", 0,"哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"));
+                        in.close();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+//        mFindDetailsCommentLists.add(new FindDetailsComment(Utils.URL + "upload/" + "18641120139138479.jpg", "name", "2015年9月10日", 0, "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"));
     }
 
 
-    private Handler handler = new Handler(){
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -190,6 +192,7 @@ public class FindDetailsActivity extends AppCompatActivity {
 
         }
     };
+
     private void findId() {
         mIvFinddetailsImage = (ImageView) findViewById(R.id.IvFinddetailsImage);
         mEtFinddetailsComment = (EditText) findViewById(R.id.EtFinddetailsComment);

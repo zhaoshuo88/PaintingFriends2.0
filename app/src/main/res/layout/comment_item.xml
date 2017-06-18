@@ -12,8 +12,9 @@
         <!-- 用户头像 -->
         <ImageView
             android:id="@+id/IvCommentitemUserpicture"
-            android:layout_width="30dp"
+            android:layout_width="0dp"
             android:layout_height="30dp"
+            android:layout_weight="1"
             android:layout_margin="5dp"
             android:src="@drawable/touxiang3"/>
 
@@ -43,8 +44,9 @@
         <!-- 点赞数量和点赞图标 -->
         <TextView
             android:id="@+id/TvCommentitemLikenum"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="8dp"
             android:text="0"

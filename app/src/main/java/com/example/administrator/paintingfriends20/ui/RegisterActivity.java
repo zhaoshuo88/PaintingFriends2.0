@@ -53,8 +53,7 @@ public class RegisterActivity extends Activity {
                 if (pwd.equals(confirmPwd)) {
 
                     new Thread() {
-                        public void run ()
-                        {
+                        public void run() {
                             try {
                                 String name = mEtRegisterName.getText().toString().trim();      //昵称
                                 String account = mEtRegisterAccount.getText().toString().trim();    //邮箱
@@ -63,49 +62,21 @@ public class RegisterActivity extends Activity {
                                         + "&uaccount=" + URLEncoder.encode(account, "UTF-8")
                                         + "&uname=" + URLEncoder.encode(name, "UTF-8");
 
-                                System.out.println("##" + urlPath);
                                 URL url = new URL(urlPath);
                                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
                                 if (conn.getResponseCode() == 200) {
 
-                                    System.out.println("200~~~~~~~~~~~~~~~~~~~");
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
-                                            Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_LONG).show();
+                                            Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_LONG).show();
                                         }
                                     });
 
-                                    Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                     startActivity(intent);
-//                                    // 获得服务器响应的数据
-//                                    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-//                                    // 数据
-//                                    String retData = null;
-//                                    String responseData = "";
-//                                    while ((retData = in.readLine()) != null) {
-//                                        responseData += retData;
-//                                    }
-//                                    if(responseData.equals("false")){
-//                                        handler2.sendEmptyMessage(0x122);
-//                                    }
-//                                    String json = responseData;
-//                                    JSONArray j=new JSONArray(json);
-//                                    JSONObject item=j.getJSONObject(0);
-//                                    int id=item.getInt("uid");      //用户ID
-//                                    String account = item.getString("uaccount");    //用户账号
-//                                    String name = item.getString("uname");      //用户名
-//                                    String headportrait = item.getString("uimage");     //用户头像
-//                                    handler2.sendEmptyMessage(0x123);
-//                                    SharedPreferences preferences = getSharedPreferences("user", Context.MODE_PRIVATE);
-//                                    SharedPreferences.Editor editor = preferences.edit();
-//                                    editor.putInt("uid", id);
-//                                    editor.putString("name", name);
-//                                    editor.putString("account", account);
-//                                    editor.putString("headportrait",headportrait);
-//                                    editor.commit();
-//                                    in.close();
+
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -113,8 +84,8 @@ public class RegisterActivity extends Activity {
 
                         }
                     }.start();
-                }else {
-                    Toast.makeText(RegisterActivity.this,"密码和确认密码不等",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(RegisterActivity.this, "密码和确认密码不等", Toast.LENGTH_LONG).show();
                 }
             }
         });

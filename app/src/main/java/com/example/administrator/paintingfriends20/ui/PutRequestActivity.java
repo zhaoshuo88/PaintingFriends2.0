@@ -52,37 +52,35 @@ public class PutRequestActivity extends Activity {
                 int hour = instance.get(Calendar.HOUR_OF_DAY);
                 int minute = instance.get(Calendar.MINUTE);
                 int second = instance.get(Calendar.SECOND);
-                final String calendar = year+"-"+month+"-"+day+"\t"+hour+":"+minute+":"+second;
+                final String calendar = year + "-" + month + "-" + day + "\t" + hour + ":" + minute + ":" + second;
 
                 //3.获取用户名
                 SharedPreferences preferences = getSharedPreferences("user", Context.MODE_PRIVATE);
                 final String name = preferences.getString("name", "name");
 
 
-                new  Thread(){
+                new Thread() {
                     @Override
                     public void run() {
                         try {
-                            String urlRequestPath = (new Utils().URL)+"request/?obj=4&runame=" + URLEncoder.encode(name,"UTF-8")//&ruid="+ruId.getText().toString()
-                                    +"&rdetail="+ URLEncoder.encode(requestContent,"UTF-8")
-                                    +"&rdate="+URLEncoder.encode(calendar,"UTF-8");
+                            String urlRequestPath = (new Utils().URL) + "request/?obj=4&runame=" + URLEncoder.encode(name, "UTF-8")//&ruid="+ruId.getText().toString()
+                                    + "&rdetail=" + URLEncoder.encode(requestContent, "UTF-8")
+                                    + "&rdate=" + URLEncoder.encode(calendar, "UTF-8");
                             URL url = new URL(urlRequestPath);
 
                             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-                            if (conn.getResponseCode() == 200){
+                            if (conn.getResponseCode() == 200) {
                                 //获得服务器响应数据
-                                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+                                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
                                 //数据
                                 String retData = null;
                                 String responseData = "";
-                                while ((retData = in.readLine()) != null){
+                                while ((retData = in.readLine()) != null) {
                                     responseData += retData;
                                 }
                                 in.close();
-//                                Intent i = new Intent();
-//                                i.setClass(PutRequestActivity.this,RequestFragment.class);
-//                                startActivity(i);
+
                                 setResult(2);
                                 finish();
 

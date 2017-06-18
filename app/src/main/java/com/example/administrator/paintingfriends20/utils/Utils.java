@@ -6,6 +6,8 @@ package com.example.administrator.paintingfriends20.utils;
 
 public class Utils {
     public static int flag = 1;
-    public static String URL = "http://10.7.88.30/";
+    public static String URL = "http://172.16.6.239" +
+            "" +
+            "/";
 
 }

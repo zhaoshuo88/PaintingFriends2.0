@@ -15,59 +15,60 @@
 
 
         <!-- 个人消息 -->
-        <RelativeLayout
-            android:id="@+id/RlayRequestitemView"
-            android:background="#ffffff"
+    <RelativeLayout
+        android:id="@+id/RlayRequestitemView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:clickable="true">
+        <!-- 头像 -->
+        <ImageButton
+            android:id="@+id/IbReqitemHeadphoto"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="10dp"
+            android:background="#00000000"
+            android:scaleType="centerInside"
+            android:src="@drawable/touxiang1" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true">
-            <!-- 头像 -->
-            <ImageButton
-                android:id="@+id/IbReqitemHeadphoto"
-                android:background="#00000000"
-                android:layout_margin="10dp"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_alignParentLeft="true"
-                android:clickable="false"
-                android:src="@drawable/touxiang1"/>
-            <LinearLayout
-                android:orientation="vertical"
+            android:layout_toRightOf="@id/IbReqitemHeadphoto"
+            android:clickable="false"
+            android:orientation="vertical">
+            <!-- 昵称 -->
+            <TextView
+                android:id="@+id/TvReqitemName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
                 android:clickable="false"
-                android:layout_toRightOf="@id/IbReqitemHeadphoto">
-                <!-- 昵称 -->
-                <TextView
-                    android:id="@+id/TvReqitemName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="10dp"
-                    android:text="喵星狗宠物店老版"
-                    android:textSize="20dp"
-                    android:textColor="#000000"
-                    android:clickable="false"
-                    android:gravity="top"/>
+                android:gravity="top"
+                android:text="喵星狗宠物店老版"
+                android:textColor="#000000"
+                android:textSize="20dp" />
 
-                <!-- 具体需求 -->
-                <TextView
-                    android:id="@+id/TvReqitemRequest"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="5dp"
-                    android:clickable="false"
-                    android:background="@drawable/zhijiao"
-                    android:hint="具体要求:"/>
+            <!-- 具体需求 -->
+            <TextView
+                android:id="@+id/TvReqitemRequest"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/zhijiao"
+                android:clickable="false"
+                android:hint="具体要求:"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp" />
 
-            </LinearLayout>
+        </LinearLayout>
 
-        </RelativeLayout>
+    </RelativeLayout>
 
-        <!-- 发布时间 -->
+    <!-- 发布时间 -->
         <TextView
             android:id="@+id/TvReqitemTime"
             android:layout_width="match_parent"

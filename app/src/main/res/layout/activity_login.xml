@@ -11,7 +11,7 @@
         android:layout_height="46dp"
         android:ems="10"
         android:paddingLeft="6dp"
-        android:hint="用户名"
+        android:hint="邮箱"
         android:textSize="19dp"
         android:layout_marginTop="44dp"
         android:background="@color/white"
@@ -27,7 +27,7 @@
         android:paddingLeft="6dp"
         android:textSize="19dp"
         android:background="@color/white"
-        android:inputType="textEmailAddress" />>
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/BtnLoginLogin"

@@ -54,8 +54,8 @@ public class MainActivity extends Activity {
 
         //2. 注册事件监听器
         setListener();
-        
-        switch (Utils.flag){
+
+        switch (Utils.flag) {
             case 1:
                 setHomePage();
                 break;
@@ -80,7 +80,7 @@ public class MainActivity extends Activity {
             mMine = new MineFragment();
         }
         //3.设置页面
-        transaction.replace(R.id.FlayMainContent,mMine);
+        transaction.replace(R.id.FlayMainContent, mMine);
         //4.执行更改
         transaction.commit();
         mLlayMainTotal.invalidate();
@@ -96,7 +96,7 @@ public class MainActivity extends Activity {
             mRequest = new RequestFragment();
         }
         //3.设置页面
-        transaction.replace(R.id.FlayMainContent,mRequest);
+        transaction.replace(R.id.FlayMainContent, mRequest);
         //4.执行更改
         transaction.commit();
         mLlayMainTotal.invalidate();
@@ -112,7 +112,7 @@ public class MainActivity extends Activity {
             mFind = new FindFragment();
         }
         //3.设置页面
-        transaction.replace(R.id.FlayMainContent,mFind);
+        transaction.replace(R.id.FlayMainContent, mFind);
         //4.执行更改
         transaction.commit();
         mLlayMainTotal.invalidate();
@@ -128,7 +128,7 @@ public class MainActivity extends Activity {
             mHome = new HomeFragment();
         }
         //3.设置页面
-        transaction.replace(R.id.FlayMainContent,mHome);
+        transaction.replace(R.id.FlayMainContent, mHome);
         //4.执行更改
         transaction.commit();
         mLlayMainTotal.invalidate();

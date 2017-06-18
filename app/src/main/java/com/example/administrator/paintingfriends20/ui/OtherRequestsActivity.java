@@ -83,20 +83,20 @@ public class OtherRequestsActivity extends AppCompatActivity {
                         if (!TextUtils.isEmpty(chatId)) {
                             //获取当前登录用户的username
                             String currUsername = EMClient.getInstance().getCurrentUser();
-                            if (chatId.equals(currUsername)){
-                                Toast.makeText(OtherRequestsActivity.this,"不能和自己聊天",
+                            if (chatId.equals(currUsername)) {
+                                Toast.makeText(OtherRequestsActivity.this, "不能和自己聊天",
                                         Toast.LENGTH_LONG).show();
                                 return;
                             }
 
                             //跳转到聊天界面，开始聊天
-                            Intent intent = new Intent(OtherRequestsActivity.this,ChatActivity.class);
+                            Intent intent = new Intent(OtherRequestsActivity.this, ChatActivity.class);
 
                             //EaseUI封装的聊天界面需要这两个参数
-                            intent.putExtra(EaseConstant.EXTRA_USER_ID,chatId);
+                            intent.putExtra(EaseConstant.EXTRA_USER_ID, chatId);
 //                    intent.putExtra(EaseConstant.EXTRA_CHAT_TYPE, EMMessage.ChatType.Chat);
 
-                            intent.putExtra(EaseConstant.EXTRA_CHAT_TYPE,EaseConstant.CHATTYPE_SINGLE);
+                            intent.putExtra(EaseConstant.EXTRA_CHAT_TYPE, EaseConstant.CHATTYPE_SINGLE);
                             startActivity(intent);
                         }
                     }
@@ -113,7 +113,6 @@ public class OtherRequestsActivity extends AppCompatActivity {
                 });
 
 
-
             }
         });
 
@@ -123,13 +122,12 @@ public class OtherRequestsActivity extends AppCompatActivity {
         mTvOtherBarname = (TextView) findViewById(R.id.TvOtherBarname);
         mIvOhterrequestHeadportrait = (ImageView) findViewById(R.id.IvOhterrequestHeadportrait);
         mTvOtherrequestName = (TextView) findViewById(R.id.TvOtherrequestName);
-        mTvOtherrequestSendmessage = (TextView)findViewById(R.id.TvOtherrequestSendmessage);
-        mLvOthersrequestRequest = (ListView)findViewById(R.id.LvOthersrequestRequest);
-
+        mTvOtherrequestSendmessage = (TextView) findViewById(R.id.TvOtherrequestSendmessage);
+        mLvOthersrequestRequest = (ListView) findViewById(R.id.LvOthersrequestRequest);
     }
 
     private void getOtherMessage() {
-        new Thread(){
+        new Thread() {
             @Override
             public void run() {
                 super.run();
@@ -140,44 +138,39 @@ public class OtherRequestsActivity extends AppCompatActivity {
 
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-                    if (conn.getResponseCode() == 200){
+                    if (conn.getResponseCode() == 200) {
                         //获得服务器响应数据
 
-                        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+                        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 
                         //数据
                         String retData = null;
                         String responseData = "";
-                        while ((retData = in.readLine()) != null){
+                        while ((retData = in.readLine()) != null) {
                             responseData += retData;
                         }
                         System.out.println(responseData);
                         JSONArray j = null;
-                        j = new JSONArray((String)responseData);
+                        j = new JSONArray((String) responseData);
 
-                        for (int i = 0 ; i < j.length();i++){
+                        for (int i = 0; i < j.length(); i++) {
                             JSONObject item = j.getJSONObject(i);
-//                                int rid=item.getInt("rid");
+
                             uname = item.getString("uname");     //他人姓名
                             uimage = item.getString("uimage");   //他人头像名字
                             String rdate = item.getString("rdate");     //需求日期
-                            String redetail = URLDecoder.decode(item.getString("rdetail"),"utf-8");     //需求内容
+                            String redetail = URLDecoder.decode(item.getString("rdetail"), "utf-8");     //需求内容
 
-//                                int ruid = item.getInt("ruid");
-//                                String name = item.getString("uname");
-//                                String uimage = item.getString("uimage");   //用户头像
-//                                lRequest.add(new Request((long)rid,Utils.URL + "upload/" + uimage,name,redetail,rdate));
-                            requestLists .add(new OtherRequest("\u3000\u3000" + redetail,rdate));
+
+                            requestLists.add(new OtherRequest("\u3000\u3000" + redetail, rdate));
 
                         }
                         System.out.println(uimage + ",  " + uname);
-//                        Picasso.with(getActivity()).load(Utils.URL + "upload/" + headportrait).into(mIvMineHeadportrait);
-//                        Picasso.with(getApplicationContext()).load(Utils.URL + "upload/" + uimage).into(mIvOhterrequestHeadportrait);
 
                         Message msg = Message.obtain();
                         HashMap<String, String> hashMap = new HashMap<>();
-                        hashMap.put("uname",uname);
-                        hashMap.put("uimage",uimage);
+                        hashMap.put("uname", uname);
+                        hashMap.put("uimage", uimage);
                         msg.obj = hashMap;
                         handler.sendMessage(msg);
 
@@ -194,11 +187,11 @@ public class OtherRequestsActivity extends AppCompatActivity {
 
     }
 
-    private Handler handler = new Handler(){
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            HashMap<String, String> obj = (HashMap<String, String>)  msg.obj;
+            HashMap<String, String> obj = (HashMap<String, String>) msg.obj;
             String uname = obj.get("uname");
             String uimage = obj.get("uimage");
 

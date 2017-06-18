@@ -42,66 +42,58 @@ public class MyWorksActivity extends Activity {
         Bundle extras = getIntent().getExtras();
         userNmae = extras.getString("name");     //用户姓名
 
-        mGvMyworkView = (GridView)findViewById(R.id.GvMyworkView);
-        mIvMyworkitemImage = (ImageView)findViewById(R.id.IvMyworkitemImage );
+        mGvMyworkView = (GridView) findViewById(R.id.GvMyworkView);
+        mIvMyworkitemImage = (ImageView) findViewById(R.id.IvMyworkitemImage);
         TvMyworkitemName = (TextView) findViewById(R.id.TvMyworkitemName);
 
         getmwLikeDate();
 
-        mMyWorkAdapter = new MyWorkAdapter(this,mMyWorksLists);
+        mMyWorkAdapter = new MyWorkAdapter(this, mMyWorksLists);
         mGvMyworkView.setAdapter(mMyWorkAdapter);
     }
 
     private void getmwLikeDate() {
 
-        new Thread(){
+        new Thread() {
             @Override
             public void run() {
                 super.run();
                 try {
-                    String urlMyWorksPath = Utils.URL + "draw/?obj=14&uname=" + URLEncoder.encode(userNmae,"UTF-8");
+                    String urlMyWorksPath = Utils.URL + "draw/?obj=14&uname=" + URLEncoder.encode(userNmae, "UTF-8");
 
                     URL url = new URL(urlMyWorksPath);
 
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-                    if (conn.getResponseCode() == 200){
+                    if (conn.getResponseCode() == 200) {
                         //获得服务器响应数据
 
-                        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+                        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 
                         //数据
                         String retData = null;
                         String responseData = "";
-                        while ((retData = in.readLine()) != null){
+                        while ((retData = in.readLine()) != null) {
                             responseData += retData;
                         }
                         System.out.println(responseData);
                         JSONArray j = null;
-                        j = new JSONArray((String)responseData);
-                        for (int i = 0 ; i < j.length();i++){
+                        j = new JSONArray((String) responseData);
+                        for (int i = 0; i < j.length(); i++) {
                             JSONObject item = j.getJSONObject(i);
 
                             int did = item.getInt("did");
                             String durl = item.getString("durl");   //作品名字
                             int dlike = item.getInt("dlike");
 
-                            mMyWorksLists .add(new MyWork(did,Utils.URL + "upload/" + durl,dlike));
+                            mMyWorksLists.add(new MyWork(did, Utils.URL + "upload/" + durl, dlike));
                         }
-
-
-
                         in.close();
-
-
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
         }.start();
-
-
     }
 }

@@ -23,6 +23,7 @@ import com.example.administrator.paintingfriends20.R;
 import com.example.administrator.paintingfriends20.ui.Mine;
 import com.example.administrator.paintingfriends20.ui.MyRequestsActivity;
 import com.example.administrator.paintingfriends20.ui.MyWorksActivity;
+import com.example.administrator.paintingfriends20.ui.SettingsActivity;
 import com.example.administrator.paintingfriends20.utils.Utils;
 import com.squareup.picasso.Picasso;
 
@@ -53,6 +54,7 @@ public class MineFragment extends Fragment {
     private RelativeLayout personal;
     private String headportrait;
     private int uid;
+    private RelativeLayout mRlayMineSetting;
 
     @Nullable
     @Override
@@ -64,32 +66,6 @@ public class MineFragment extends Fragment {
         uid = preferences.getInt("uid", 1);     //用户ID
         name = preferences.getString("name", "name");   //用户名
         headportrait = preferences.getString("headportrait","headportrait"); //用户头像
-//        personal.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent();
-//                intent.setClass(getActivity(),Mine.class);
-//                startActivity(intent);
-//            }
-//        });
-//        mRlayMineRequest.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent();
-//                intent.setClass(getActivity(), MyRequestsActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        mRlayMineWorks.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent();
-//                intent.setClass(getActivity(), MyWorksActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-
 
         return view;
     }
@@ -100,6 +76,7 @@ public class MineFragment extends Fragment {
         mRlayMineRequest = (RelativeLayout) view.findViewById(R.id.RlayMineRequest);
         mRlayMineWorks = (RelativeLayout) view.findViewById(R.id.RlayMineWorks);
         mIvMineHeadportrait = (ImageView)view.findViewById(R.id.IvMineHeadportrait);
+        mRlayMineSetting = (RelativeLayout)view.findViewById(R.id.RlayMineSetting);
 
     }
 
@@ -113,8 +90,6 @@ public class MineFragment extends Fragment {
         mTvMineName.setText(name);
         System.out.println(Utils.URL + "upload/" + headportrait);
         Picasso.with(getActivity()).load(Utils.URL + "upload/" + headportrait).into(mIvMineHeadportrait);
-//        HeadThread headThread = new HeadThread();
-//        headThread.start();
 
         //设置监听
         personal.setOnClickListener(new OnClick());
@@ -147,6 +122,10 @@ public class MineFragment extends Fragment {
                     personalIntent.putExtra("headportrait",headportrait);
                     personalIntent.setClass(getActivity(), Mine.class);
                     startActivity(personalIntent);
+                    break;
+                case R.id.RlayMineSetting:
+                    Intent settingIntent = new Intent(getActivity(), SettingsActivity.class);
+                    startActivity(settingIntent);
                     break;
             }
 
